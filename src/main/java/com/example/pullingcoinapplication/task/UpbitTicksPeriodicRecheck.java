@@ -10,6 +10,7 @@ import com.example.pullingcoinapplication.util.UpbitCodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -25,16 +26,19 @@ public class UpbitTicksPeriodicRecheck {
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitTickService upbitTickService;
 
+    @Value("${property.upbitCron.doubleCheck.period}")
+    private int checkPeriod;
 
-    @Scheduled(cron = "00 */15 * * * *")
+
+    @Scheduled(cron = "${property.upbitCron.doubleCheck.cronCommand}")
     public void stuffUpMissingTicks() throws JsonProcessingException, InterruptedException {
 
-        log.info("stuff up every 15 min");
+        log.info("stuff up every {} min",checkPeriod);
         for (UpbitCoinCode code : UpbitCodeUtil.getAllCoinCodes()) {
 
             log.info(" {},{} | start rechecking  : ", System.currentTimeMillis(), code.toString());
             Long to = System.currentTimeMillis();
-            Long from = to - 1000 * 60 * 15;
+            Long from = to - 1000 * 60 * checkPeriod;
 
             List<UpbitTick> ticksFromDb =
                     upbitTickService.findByTimestampBetweenOrderByTimestampDesc(code, from, to);

@@ -24,7 +24,7 @@ public class UpbitRestRequestServiceTest {
 
     @Test
     public void getLatestBtcTick() throws JsonProcessingException {
-        assertEquals( upbitRestRequestService.getLastestTicks(UpbitCoinCode.KRW_BTC).length,100);
+        assertEquals( upbitRestRequestService.getLastestTicks(UpbitCoinCode.KRW_BTC).size(),100);
 
     }
 
