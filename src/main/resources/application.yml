@@ -29,7 +29,7 @@ spring:
 property:
   upbitCron:
     doubleCheck:
-      cronCommand: 00 */15 * * *
+      cronCommand: 00 */15 * * * *
       period: 15
 
     restartSessions:
@@ -60,7 +60,7 @@ spring:
 property:
   upbitCron:
     doubleCheck:
-      cronCommand: 00 */15 * * *
+      cronCommand: 00 */15 * * * *
       period: 15
 
     restartSessions:

@@ -2,6 +2,7 @@ package com.example.pullingcoinapplication.service.upbitRest;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
+import com.example.pullingcoinapplication.entity.upbit.CallType;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -28,7 +29,7 @@ public class UpbitRestRequestService {
 
 
     //TODO : string builder
-    public UpbitTick[] getLastestTicks(UpbitCoinCode upbitCoinCode) throws JsonProcessingException {
+    public List<UpbitTick> getLastestTicks(UpbitCoinCode upbitCoinCode) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         String uri = Uri.UPBIT_REST_TICK_URI.getAddress();
         uri += "?market=" + upbitCoinCode.toString();
@@ -36,7 +37,10 @@ public class UpbitRestRequestService {
         System.out.println(uri);
         ResponseEntity<String> response
                 = restTemplate.getForEntity(uri, String.class);
-        return objectMapper.readValue(response.getBody(), UpbitTick[].class);
+
+        List<UpbitTick> ticks = Arrays.asList(objectMapper.readValue(response.getBody(), UpbitTick[].class));
+        ticks.stream().forEach(t->t.setCallType(CallType.RESTAPI));
+        return ticks;
     }
 
     public UpbitTick[] getTicksBeforeSequentialId(UpbitCoinCode upbitCoinCode, Long sequentialId) throws JsonProcessingException {

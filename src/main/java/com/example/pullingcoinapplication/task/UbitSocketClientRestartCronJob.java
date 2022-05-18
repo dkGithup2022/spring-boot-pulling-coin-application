@@ -32,7 +32,8 @@ public class UbitSocketClientRestartCronJob {
     @Autowired
     Map<SocketClientIndicator, WebSocketSession> webSocketSessionMap;
 
-    @Scheduled(cron = "00 00 00 * * * ")
+    @Scheduled(cron = "${property.upbitCron.restartSessions.cronCommand}")
+
     public void resetAllClient() throws IOException, Exception {
 
         log.info("clear all socket client sessions");

@@ -26,6 +26,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -151,7 +152,7 @@ public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
 
     private void stuffGapBetweenRestart(UpbitCoinCode code) throws JsonProcessingException, InterruptedException {
         Thread.sleep(100);
-        UpbitTick[] ticks = upbitRestRequestService.getLastestTicks(code);
+        List<UpbitTick> ticks = upbitRestRequestService.getLastestTicks(code);
         log.info("call rest api / codes : {}", code);
         log.info("ticks: {}", ticks);
         for(UpbitTick tick: ticks){

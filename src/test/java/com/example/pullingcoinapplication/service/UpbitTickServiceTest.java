@@ -84,7 +84,7 @@ public class UpbitTickServiceTest {
     @Test
     public void betweenQeuery() throws JsonProcessingException, InterruptedException {
 
-        UpbitTick[] ticks = upbitRestRequestService.getLastestTicks(UpbitCoinCode.KRW_BTC);
+        List<UpbitTick> ticks = upbitRestRequestService.getLastestTicks(UpbitCoinCode.KRW_BTC);
         for(UpbitTick tick : ticks) {
             upbitTickService.save(UpbitTickFactory.of(tick));
         }
