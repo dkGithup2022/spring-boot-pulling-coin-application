@@ -1,0 +1,350 @@
+2022-04-29 19:52:42.108  INFO 1709 --- [main] c.e.pullingcoinapplication.Application   : Starting Application using Java 16.0.1 on gimdohyeon-ui-MacBookPro.local with PID 1709 (/Users/gimdohyeon/Desktop/code2022/demo/hibernateInterceptor/PullingCoinApplication/target/classes started by gimdohyeon in /Users/gimdohyeon/Desktop/code2022/demo/hibernateInterceptor/PullingCoinApplication)
+2022-04-29 19:52:42.112  INFO 1709 --- [main] c.e.pullingcoinapplication.Application   : The following 1 profile is active: "prod"
+2022-04-29 19:52:42.741  INFO 1709 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-04-29 19:52:42.862  INFO 1709 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 115 ms. Found 23 JPA repository interfaces.
+2022-04-29 19:52:43.352  INFO 1709 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-04-29 19:52:43.358  INFO 1709 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-04-29 19:52:43.358  INFO 1709 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-04-29 19:52:43.466  INFO 1709 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-04-29 19:52:43.466  INFO 1709 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1289 ms
+2022-04-29 19:52:43.505  INFO 1709 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-04-29 19:52:43.575  INFO 1709 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-04-29 19:52:43.587  INFO 1709 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2022-04-29 19:52:43.702  INFO 1709 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-04-29 19:52:43.720  INFO 1709 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-04-29 19:52:43.779  INFO 1709 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-04-29 19:52:43.822  INFO 1709 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-04-29 19:52:44.671  INFO 1709 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-04-29 19:52:44.678  INFO 1709 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-04-29 19:52:45.656  WARN 1709 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-04-29 19:52:45.869  INFO 1709 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-04-29 19:52:45.891  INFO 1709 --- [main] c.e.pullingcoinapplication.Application   : Started Application in 4.185 seconds (JVM running for 9.834)
+2022-04-29 19:52:46.307  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 4cb51be6-0728-d7d2-c40d-7e318d49ee2e,
+2022-04-29 19:52:46.309  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-BTC
+2022-04-29 19:52:52.329  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session caf2c16a-9d69-6b12-fda6-31c766116966,
+2022-04-29 19:52:52.330  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-ETH
+2022-04-29 19:52:53.484  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 932e14df-2df8-5f14-9159-d1f47323eedc,
+2022-04-29 19:52:53.484  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-ETC
+2022-04-29 19:52:54.766  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 99015c5f-b2a8-507c-cebe-cbbadf335160,
+2022-04-29 19:52:54.767  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-DOGE
+2022-04-29 19:52:55.919  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 63c97434-569b-3f20-c419-df41e490426b,
+2022-04-29 19:52:55.919  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-BAT
+2022-04-29 19:52:57.187  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 7c2f20f3-03b9-66d9-4cc7-8e17836ca321,
+2022-04-29 19:52:57.188  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 19:53:03.395  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 0e4311b0-3af6-2a81-4d2a-31e3718d68b0,
+2022-04-29 19:53:03.397  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 19:53:04.604  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session c9085d37-246f-800b-3a98-39ce509b42a1,
+2022-04-29 19:53:04.605  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-SAND
+2022-04-29 19:58:18.788 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 0e4311b0-3af6-2a81-4d2a-31e3718d68b0 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 19:58:18.809  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 0e4311b0-3af6-2a81-4d2a-31e3718d68b0 notified : subscriber notified wait for 5000 
+2022-04-29 19:58:18.815  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 0e4311b0-3af6-2a81-4d2a-31e3718d68b0 notified : wakeup and try to reconnect 
+2022-04-29 19:58:18.828 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=0e4311b0-3af6-2a81-4d2a-31e3718d68b0) 
+2022-04-29 19:58:18.829 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=0e4311b0-3af6-2a81-4d2a-31e3718d68b0)
+2022-04-29 19:58:24.057  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 08a58937-e6b0-6b8d-de09-96e21e7a0222,
+2022-04-29 19:58:24.058  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:03:11.831 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 63c97434-569b-3f20-c419-df41e490426b | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:03:11.833  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 63c97434-569b-3f20-c419-df41e490426b notified : subscriber notified wait for 5000 
+2022-04-29 20:03:11.834  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 63c97434-569b-3f20-c419-df41e490426b notified : wakeup and try to reconnect 
+2022-04-29 20:03:11.834 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-BAT, sessionId=63c97434-569b-3f20-c419-df41e490426b) 
+2022-04-29 20:03:11.835 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-BAT, sessionId=63c97434-569b-3f20-c419-df41e490426b)
+2022-04-29 20:03:17.033  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 368463b8-39c4-3d4c-5b94-3091f26823a4,
+2022-04-29 20:03:17.034  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-BAT
+2022-04-29 20:06:10.305 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 08a58937-e6b0-6b8d-de09-96e21e7a0222 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:06:10.308  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 08a58937-e6b0-6b8d-de09-96e21e7a0222 notified : subscriber notified wait for 5000 
+2022-04-29 20:06:10.309  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 08a58937-e6b0-6b8d-de09-96e21e7a0222 notified : wakeup and try to reconnect 
+2022-04-29 20:06:10.309 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=08a58937-e6b0-6b8d-de09-96e21e7a0222) 
+2022-04-29 20:06:10.311 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=08a58937-e6b0-6b8d-de09-96e21e7a0222)
+2022-04-29 20:06:15.458  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 6e255286-38cd-eda5-6fee-2055e4d74ba9,
+2022-04-29 20:06:15.459  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:16:34.232 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 6e255286-38cd-eda5-6fee-2055e4d74ba9 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:16:34.235  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 6e255286-38cd-eda5-6fee-2055e4d74ba9 notified : subscriber notified wait for 5000 
+2022-04-29 20:16:34.241  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 6e255286-38cd-eda5-6fee-2055e4d74ba9 notified : wakeup and try to reconnect 
+2022-04-29 20:16:34.242 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=6e255286-38cd-eda5-6fee-2055e4d74ba9) 
+2022-04-29 20:16:34.243 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=6e255286-38cd-eda5-6fee-2055e4d74ba9)
+2022-04-29 20:16:39.411  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 616b5cda-7c54-ccc5-f985-1a6e4d293159,
+2022-04-29 20:16:39.413  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:20:18.168 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 616b5cda-7c54-ccc5-f985-1a6e4d293159 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:20:18.171  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 616b5cda-7c54-ccc5-f985-1a6e4d293159 notified : subscriber notified wait for 5000 
+2022-04-29 20:20:18.171  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 616b5cda-7c54-ccc5-f985-1a6e4d293159 notified : wakeup and try to reconnect 
+2022-04-29 20:20:18.172 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=616b5cda-7c54-ccc5-f985-1a6e4d293159) 
+2022-04-29 20:20:18.172 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=616b5cda-7c54-ccc5-f985-1a6e4d293159)
+2022-04-29 20:20:23.361  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 7c97a6ff-658d-f907-bbe9-672a30d2595b,
+2022-04-29 20:20:23.362  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:25:08.756 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 7c97a6ff-658d-f907-bbe9-672a30d2595b | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:25:08.759  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 7c97a6ff-658d-f907-bbe9-672a30d2595b notified : subscriber notified wait for 5000 
+2022-04-29 20:25:08.760  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 7c97a6ff-658d-f907-bbe9-672a30d2595b notified : wakeup and try to reconnect 
+2022-04-29 20:25:08.760 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=7c97a6ff-658d-f907-bbe9-672a30d2595b) 
+2022-04-29 20:25:08.761 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=7c97a6ff-658d-f907-bbe9-672a30d2595b)
+2022-04-29 20:25:14.046  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 4a5332f7-ba2d-c99a-618b-8c66f78dfcd6,
+2022-04-29 20:25:14.051  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:30:24.122 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 7c2f20f3-03b9-66d9-4cc7-8e17836ca321 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:30:24.126  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 7c2f20f3-03b9-66d9-4cc7-8e17836ca321 notified : subscriber notified wait for 5000 
+2022-04-29 20:30:24.133  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 7c2f20f3-03b9-66d9-4cc7-8e17836ca321 notified : wakeup and try to reconnect 
+2022-04-29 20:30:24.134 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=7c2f20f3-03b9-66d9-4cc7-8e17836ca321) 
+2022-04-29 20:30:24.135 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=7c2f20f3-03b9-66d9-4cc7-8e17836ca321)
+2022-04-29 20:30:29.390  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 166c4bb4-74aa-d31c-c21d-b2426199f2d3,
+2022-04-29 20:30:29.406  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 20:31:38.162 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 166c4bb4-74aa-d31c-c21d-b2426199f2d3 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:31:38.165  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 166c4bb4-74aa-d31c-c21d-b2426199f2d3 notified : subscriber notified wait for 5000 
+2022-04-29 20:31:38.166  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 166c4bb4-74aa-d31c-c21d-b2426199f2d3 notified : wakeup and try to reconnect 
+2022-04-29 20:31:38.166 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=166c4bb4-74aa-d31c-c21d-b2426199f2d3) 
+2022-04-29 20:31:38.166 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=166c4bb4-74aa-d31c-c21d-b2426199f2d3)
+2022-04-29 20:31:43.347  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session d42492f5-d6ed-1d82-6513-9794ba289e1c,
+2022-04-29 20:31:43.379  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 20:35:19.381 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 4a5332f7-ba2d-c99a-618b-8c66f78dfcd6 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:35:19.384  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 4a5332f7-ba2d-c99a-618b-8c66f78dfcd6 notified : subscriber notified wait for 5000 
+2022-04-29 20:35:19.385  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 4a5332f7-ba2d-c99a-618b-8c66f78dfcd6 notified : wakeup and try to reconnect 
+2022-04-29 20:35:19.386 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=4a5332f7-ba2d-c99a-618b-8c66f78dfcd6) 
+2022-04-29 20:35:19.387 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=4a5332f7-ba2d-c99a-618b-8c66f78dfcd6)
+2022-04-29 20:35:24.645  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 40423e92-c1da-bd9f-4501-08144d8d0541,
+2022-04-29 20:35:24.646  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:37:53.485 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 40423e92-c1da-bd9f-4501-08144d8d0541 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:37:53.489  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 40423e92-c1da-bd9f-4501-08144d8d0541 notified : subscriber notified wait for 5000 
+2022-04-29 20:37:53.490  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 40423e92-c1da-bd9f-4501-08144d8d0541 notified : wakeup and try to reconnect 
+2022-04-29 20:37:53.490 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=40423e92-c1da-bd9f-4501-08144d8d0541) 
+2022-04-29 20:37:53.491 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=40423e92-c1da-bd9f-4501-08144d8d0541)
+2022-04-29 20:37:58.705  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 4735444f-4531-f31c-d8e9-457017be763a,
+2022-04-29 20:37:58.708  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:44:34.879 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : d42492f5-d6ed-1d82-6513-9794ba289e1c | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:44:34.894  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : d42492f5-d6ed-1d82-6513-9794ba289e1c notified : subscriber notified wait for 5000 
+2022-04-29 20:44:34.895  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : d42492f5-d6ed-1d82-6513-9794ba289e1c notified : wakeup and try to reconnect 
+2022-04-29 20:44:34.897 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=d42492f5-d6ed-1d82-6513-9794ba289e1c) 
+2022-04-29 20:44:34.898 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=d42492f5-d6ed-1d82-6513-9794ba289e1c)
+2022-04-29 20:44:40.177  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session a607b896-7ba8-11c8-4db4-5772bc370e24,
+2022-04-29 20:44:40.178  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 20:45:50.554 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 4735444f-4531-f31c-d8e9-457017be763a | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:45:50.556  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 4735444f-4531-f31c-d8e9-457017be763a notified : subscriber notified wait for 5000 
+2022-04-29 20:45:50.556  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 4735444f-4531-f31c-d8e9-457017be763a notified : wakeup and try to reconnect 
+2022-04-29 20:45:50.556 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=4735444f-4531-f31c-d8e9-457017be763a) 
+2022-04-29 20:45:50.556 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=4735444f-4531-f31c-d8e9-457017be763a)
+2022-04-29 20:45:55.770  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session d1ee5f43-9151-1216-1554-659bbe67b772,
+2022-04-29 20:45:55.771  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:49:09.953 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : d1ee5f43-9151-1216-1554-659bbe67b772 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:49:09.960  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : d1ee5f43-9151-1216-1554-659bbe67b772 notified : subscriber notified wait for 5000 
+2022-04-29 20:49:09.964  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : d1ee5f43-9151-1216-1554-659bbe67b772 notified : wakeup and try to reconnect 
+2022-04-29 20:49:09.967 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=d1ee5f43-9151-1216-1554-659bbe67b772) 
+2022-04-29 20:49:09.969 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=d1ee5f43-9151-1216-1554-659bbe67b772)
+2022-04-29 20:49:15.180  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 15a922c5-2598-6fe2-a564-1fa3ec16ec6d,
+2022-04-29 20:49:15.186  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:51:21.298 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 368463b8-39c4-3d4c-5b94-3091f26823a4 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:51:21.304  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 368463b8-39c4-3d4c-5b94-3091f26823a4 notified : subscriber notified wait for 5000 
+2022-04-29 20:51:21.305  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 368463b8-39c4-3d4c-5b94-3091f26823a4 notified : wakeup and try to reconnect 
+2022-04-29 20:51:21.306 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-BAT, sessionId=368463b8-39c4-3d4c-5b94-3091f26823a4) 
+2022-04-29 20:51:21.306 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-BAT, sessionId=368463b8-39c4-3d4c-5b94-3091f26823a4)
+2022-04-29 20:51:26.467  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 00091c3f-d773-50eb-793d-1e311887db74,
+2022-04-29 20:51:26.470  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-BAT
+2022-04-29 20:51:37.423 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 15a922c5-2598-6fe2-a564-1fa3ec16ec6d | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:51:37.425  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 15a922c5-2598-6fe2-a564-1fa3ec16ec6d notified : subscriber notified wait for 5000 
+2022-04-29 20:51:37.425  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 15a922c5-2598-6fe2-a564-1fa3ec16ec6d notified : wakeup and try to reconnect 
+2022-04-29 20:51:37.426 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=15a922c5-2598-6fe2-a564-1fa3ec16ec6d) 
+2022-04-29 20:51:37.426 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=15a922c5-2598-6fe2-a564-1fa3ec16ec6d)
+2022-04-29 20:51:42.577  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 0053e497-199f-3c69-5bc2-4fc10c38f9e0,
+2022-04-29 20:51:42.577  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 20:58:25.679 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : a607b896-7ba8-11c8-4db4-5772bc370e24 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 20:58:25.683  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : a607b896-7ba8-11c8-4db4-5772bc370e24 notified : subscriber notified wait for 5000 
+2022-04-29 20:58:25.683  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : a607b896-7ba8-11c8-4db4-5772bc370e24 notified : wakeup and try to reconnect 
+2022-04-29 20:58:25.684 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=a607b896-7ba8-11c8-4db4-5772bc370e24) 
+2022-04-29 20:58:25.684 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=a607b896-7ba8-11c8-4db4-5772bc370e24)
+2022-04-29 20:58:30.857  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 49513d5e-48e7-dcfa-e573-3bf7bd877e52,
+2022-04-29 20:58:30.857  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:00:30.128 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 49513d5e-48e7-dcfa-e573-3bf7bd877e52 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:00:30.139  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 49513d5e-48e7-dcfa-e573-3bf7bd877e52 notified : subscriber notified wait for 5000 
+2022-04-29 21:00:30.139  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 49513d5e-48e7-dcfa-e573-3bf7bd877e52 notified : wakeup and try to reconnect 
+2022-04-29 21:00:30.140 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=49513d5e-48e7-dcfa-e573-3bf7bd877e52) 
+2022-04-29 21:00:30.144 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=49513d5e-48e7-dcfa-e573-3bf7bd877e52)
+2022-04-29 21:00:35.385  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session fc41229a-00ea-e7b9-4384-589ac1a16994,
+2022-04-29 21:00:35.392  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:02:04.212 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : fc41229a-00ea-e7b9-4384-589ac1a16994 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:02:04.213  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : fc41229a-00ea-e7b9-4384-589ac1a16994 notified : subscriber notified wait for 5000 
+2022-04-29 21:02:04.214  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : fc41229a-00ea-e7b9-4384-589ac1a16994 notified : wakeup and try to reconnect 
+2022-04-29 21:02:04.214 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=fc41229a-00ea-e7b9-4384-589ac1a16994) 
+2022-04-29 21:02:04.214 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=fc41229a-00ea-e7b9-4384-589ac1a16994)
+2022-04-29 21:02:05.389 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 0053e497-199f-3c69-5bc2-4fc10c38f9e0 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:02:05.389  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 0053e497-199f-3c69-5bc2-4fc10c38f9e0 notified : subscriber notified wait for 5000 
+2022-04-29 21:02:05.390  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 0053e497-199f-3c69-5bc2-4fc10c38f9e0 notified : wakeup and try to reconnect 
+2022-04-29 21:02:05.391 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=0053e497-199f-3c69-5bc2-4fc10c38f9e0) 
+2022-04-29 21:02:05.391 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=0053e497-199f-3c69-5bc2-4fc10c38f9e0)
+2022-04-29 21:02:09.437  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 85036642-abd3-8c0f-3df4-29f7fe71376f,
+2022-04-29 21:02:09.449  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:02:10.578  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 4423dddb-5bf3-b2f9-74fc-9099a38e3d0b,
+2022-04-29 21:02:10.578  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 21:03:55.122 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 4423dddb-5bf3-b2f9-74fc-9099a38e3d0b | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:03:55.130  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 4423dddb-5bf3-b2f9-74fc-9099a38e3d0b notified : subscriber notified wait for 5000 
+2022-04-29 21:03:55.131  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 4423dddb-5bf3-b2f9-74fc-9099a38e3d0b notified : wakeup and try to reconnect 
+2022-04-29 21:03:55.131 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=4423dddb-5bf3-b2f9-74fc-9099a38e3d0b) 
+2022-04-29 21:03:55.132 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=4423dddb-5bf3-b2f9-74fc-9099a38e3d0b)
+2022-04-29 21:04:00.333  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 6fb2c766-d937-7e30-eb46-06f55c4d6478,
+2022-04-29 21:04:00.337  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 21:06:10.540 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 6fb2c766-d937-7e30-eb46-06f55c4d6478 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:06:10.551  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 6fb2c766-d937-7e30-eb46-06f55c4d6478 notified : subscriber notified wait for 5000 
+2022-04-29 21:06:10.551  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 6fb2c766-d937-7e30-eb46-06f55c4d6478 notified : wakeup and try to reconnect 
+2022-04-29 21:06:10.552 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=6fb2c766-d937-7e30-eb46-06f55c4d6478) 
+2022-04-29 21:06:10.553 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=6fb2c766-d937-7e30-eb46-06f55c4d6478)
+2022-04-29 21:06:15.771  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 350509fc-fee9-f599-c9bc-6e0bc1775090,
+2022-04-29 21:06:15.772  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 21:06:29.386 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 85036642-abd3-8c0f-3df4-29f7fe71376f | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:06:29.388  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 85036642-abd3-8c0f-3df4-29f7fe71376f notified : subscriber notified wait for 5000 
+2022-04-29 21:06:29.388  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 85036642-abd3-8c0f-3df4-29f7fe71376f notified : wakeup and try to reconnect 
+2022-04-29 21:06:29.388 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=85036642-abd3-8c0f-3df4-29f7fe71376f) 
+2022-04-29 21:06:29.388 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=85036642-abd3-8c0f-3df4-29f7fe71376f)
+2022-04-29 21:06:34.542  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 27c0f983-4038-ace9-5cec-48f30e530f65,
+2022-04-29 21:06:34.543  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:13:06.896 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 350509fc-fee9-f599-c9bc-6e0bc1775090 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:13:06.911  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 350509fc-fee9-f599-c9bc-6e0bc1775090 notified : subscriber notified wait for 5000 
+2022-04-29 21:13:06.912  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 350509fc-fee9-f599-c9bc-6e0bc1775090 notified : wakeup and try to reconnect 
+2022-04-29 21:13:06.914 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=350509fc-fee9-f599-c9bc-6e0bc1775090) 
+2022-04-29 21:13:06.916 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=350509fc-fee9-f599-c9bc-6e0bc1775090)
+2022-04-29 21:13:12.103  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session d3d78296-8f67-1a31-614b-3cfe19ef4e70,
+2022-04-29 21:13:12.112  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 21:14:50.969 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 27c0f983-4038-ace9-5cec-48f30e530f65 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:14:50.971  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 27c0f983-4038-ace9-5cec-48f30e530f65 notified : subscriber notified wait for 5000 
+2022-04-29 21:14:50.972  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 27c0f983-4038-ace9-5cec-48f30e530f65 notified : wakeup and try to reconnect 
+2022-04-29 21:14:50.972 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=27c0f983-4038-ace9-5cec-48f30e530f65) 
+2022-04-29 21:14:50.972 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=27c0f983-4038-ace9-5cec-48f30e530f65)
+2022-04-29 21:14:56.217  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session b166f68d-61bd-4e9c-82d9-e37180f05799,
+2022-04-29 21:14:56.218  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:15:03.070 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : d3d78296-8f67-1a31-614b-3cfe19ef4e70 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:15:03.084  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : d3d78296-8f67-1a31-614b-3cfe19ef4e70 notified : subscriber notified wait for 5000 
+2022-04-29 21:15:03.085  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : d3d78296-8f67-1a31-614b-3cfe19ef4e70 notified : wakeup and try to reconnect 
+2022-04-29 21:15:03.086 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=d3d78296-8f67-1a31-614b-3cfe19ef4e70) 
+2022-04-29 21:15:03.087 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=d3d78296-8f67-1a31-614b-3cfe19ef4e70)
+2022-04-29 21:15:08.345  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 437d05fe-0b77-c60a-1fe7-414a214a9d39,
+2022-04-29 21:15:08.345  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 21:20:53.351 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : b166f68d-61bd-4e9c-82d9-e37180f05799 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:20:53.360  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : b166f68d-61bd-4e9c-82d9-e37180f05799 notified : subscriber notified wait for 5000 
+2022-04-29 21:20:53.360  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : b166f68d-61bd-4e9c-82d9-e37180f05799 notified : wakeup and try to reconnect 
+2022-04-29 21:20:53.361 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=b166f68d-61bd-4e9c-82d9-e37180f05799) 
+2022-04-29 21:20:53.361 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=b166f68d-61bd-4e9c-82d9-e37180f05799)
+2022-04-29 21:20:58.656  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 77508054-5362-1fa7-5004-e35fce99098c,
+2022-04-29 21:20:58.657  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:26:34.326 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 77508054-5362-1fa7-5004-e35fce99098c | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:26:34.340  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 77508054-5362-1fa7-5004-e35fce99098c notified : subscriber notified wait for 5000 
+2022-04-29 21:26:34.340  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 77508054-5362-1fa7-5004-e35fce99098c notified : wakeup and try to reconnect 
+2022-04-29 21:26:34.341 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-AVAX, sessionId=77508054-5362-1fa7-5004-e35fce99098c) 
+2022-04-29 21:26:34.342 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-AVAX, sessionId=77508054-5362-1fa7-5004-e35fce99098c)
+2022-04-29 21:26:39.561  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 4f6a804c-42eb-f1e6-2a5c-92d7411c7961,
+2022-04-29 21:26:39.562  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-AVAX
+2022-04-29 21:28:11.015 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : 437d05fe-0b77-c60a-1fe7-414a214a9d39 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:28:11.026  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 437d05fe-0b77-c60a-1fe7-414a214a9d39 notified : subscriber notified wait for 5000 
+2022-04-29 21:28:11.026  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : 437d05fe-0b77-c60a-1fe7-414a214a9d39 notified : wakeup and try to reconnect 
+2022-04-29 21:28:11.027 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=437d05fe-0b77-c60a-1fe7-414a214a9d39) 
+2022-04-29 21:28:11.027 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=437d05fe-0b77-c60a-1fe7-414a214a9d39)
+2022-04-29 21:28:16.218  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session c3c072d4-3db3-dd5f-4100-e2c64d6c4ab8,
+2022-04-29 21:28:16.218  INFO 1709 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-CHZ
+2022-04-29 21:33:05.484 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.handler.WebSocketClientHandler   : closed : c3c072d4-3db3-dd5f-4100-e2c64d6c4ab8 | status : CloseStatus[code=1006, reason=Unexpected Status of SSLEngineResult after an unwrap() operation] 
+2022-04-29 21:33:05.495  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : c3c072d4-3db3-dd5f-4100-e2c64d6c4ab8 notified : subscriber notified wait for 5000 
+2022-04-29 21:33:05.497  INFO 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : c3c072d4-3db3-dd5f-4100-e2c64d6c4ab8 notified : wakeup and try to reconnect 
+2022-04-29 21:33:05.498 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to close SocketClientIndicator(coin=KRW-CHZ, sessionId=c3c072d4-3db3-dd5f-4100-e2c64d6c4ab8) 
+2022-04-29 21:33:05.498 ERROR 1709 --- [WebSocketClient-SecureIO-2] c.e.p.s.u.UpbitSocketClientService       : try to rerun SocketClientIndicator(coin=KRW-CHZ, sessionId=c3c072d4-3db3-dd5f-4100-e2c64d6c4ab8)
+2022-04-29 21:33:09.493  WARN 1709 --- [WebSocketClient-SecureIO-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 90121, SQLState: 90121
+2022-04-29 21:33:09.494 ERROR 1709 --- [WebSocketClient-SecureIO-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+2022-04-29 21:33:09.968  INFO 1709 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-04-29 21:33:09.962 ERROR 1709 --- [WebSocketClient-SecureIO-1] o.s.orm.jpa.EntityManagerFactoryUtils    : Failed to release JPA EntityManager
+
+org.hibernate.exception.JDBCConnectionException: Unable to release JDBC Connection
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:48) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.releaseConnection(LogicalConnectionManagedImpl.java:223) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.close(LogicalConnectionManagedImpl.java:261) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.close(JdbcCoordinatorImpl.java:175) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.AbstractSharedSessionContract.close(AbstractSharedSessionContract.java:374) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.closeWithoutOpenChecks(SessionImpl.java:413) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.close(SessionImpl.java:398) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.springframework.orm.jpa.EntityManagerFactoryUtils.closeEntityManager(EntityManagerFactoryUtils.java:427) ~[spring-orm-5.3.18.jar:5.3.18]
+	at org.springframework.orm.jpa.JpaTransactionManager.closeEntityManagerAfterFailedBegin(JpaTransactionManager.java:514) ~[spring-orm-5.3.18.jar:5.3.18]
+	at org.springframework.orm.jpa.JpaTransactionManager.doBegin(JpaTransactionManager.java:466) ~[spring-orm-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:595) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:382) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.6.3.jar:2.6.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.18.jar:5.3.18]
+	at jdk.proxy2/jdk.proxy2.$Proxy113.save(Unknown Source) ~[na:na]
+	at com.example.pullingcoinapplication.service.UpbitTickService.save(UpbitTickService.java:24) ~[classes/:na]
+	at com.example.pullingcoinapplication.socket.handler.WebSocketClientHandler.handleMessage(WebSocketClientHandler.java:53) ~[classes/:na]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleBinaryMessage(StandardWebSocketHandlerAdapter.java:124) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$100(StandardWebSocketHandlerAdapter.java:43) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$4.onMessage(StandardWebSocketHandlerAdapter.java:91) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$4.onMessage(StandardWebSocketHandlerAdapter.java:88) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.apache.tomcat.websocket.WsFrameBase.sendMessageBinary(WsFrameBase.java:602) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processDataBinary(WsFrameBase.java:561) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processData(WsFrameBase.java:307) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processInputBuffer(WsFrameBase.java:133) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.processSocketRead(WsFrameClient.java:95) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.resumeProcessing(WsFrameClient.java:212) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.access$500(WsFrameClient.java:31) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.doResumeProcessing(WsFrameClient.java:189) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.completed(WsFrameClient.java:163) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.completed(WsFrameClient.java:148) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.AsyncChannelWrapperSecure$WrapperFuture.complete(AsyncChannelWrapperSecure.java:471) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.AsyncChannelWrapperSecure$ReadTask.run(AsyncChannelWrapperSecure.java:338) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:622) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:170) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1514) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.checkClosed(JdbcConnection.java:1490) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.clearWarnings(JdbcConnection.java:703) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.close(ProxyConnection.java:267) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.connections.internal.DatasourceConnectionProviderImpl.closeConnection(DatasourceConnectionProviderImpl.java:127) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.NonContextualJdbcConnectionAccess.releaseConnection(NonContextualJdbcConnectionAccess.java:49) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.releaseConnection(LogicalConnectionManagedImpl.java:219) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	... 43 common frames omitted
+
+2022-04-29 21:33:09.993  INFO 1709 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-04-29 21:33:10.156 ERROR 1709 --- [WebSocketClient-SecureIO-1] .w.s.a.s.StandardWebSocketHandlerAdapter : Closing session due to exception for StandardWebSocketSession[id=99015c5f-b2a8-507c-cebe-cbbadf335160, uri=null]
+
+org.springframework.beans.factory.BeanCreationNotAllowedException: Error creating bean with name 'entityManagerFactory': Singleton bean creation not allowed while singletons of this factory are in destruction (Do not request a bean from a BeanFactory in a destroy method implementation!)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:220) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory$1.orderedStream(DefaultListableBeanFactory.java:481) ~[spring-beans-5.3.18.jar:5.3.18]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.detectPersistenceExceptionTranslators(PersistenceExceptionTranslationInterceptor.java:167) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:149) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.6.3.jar:2.6.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.18.jar:5.3.18]
+	at jdk.proxy2/jdk.proxy2.$Proxy113.save(Unknown Source) ~[na:na]
+	at com.example.pullingcoinapplication.service.UpbitTickService.save(UpbitTickService.java:24) ~[classes/:na]
+	at com.example.pullingcoinapplication.socket.handler.WebSocketClientHandler.handleMessage(WebSocketClientHandler.java:53) ~[classes/:na]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleBinaryMessage(StandardWebSocketHandlerAdapter.java:124) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$100(StandardWebSocketHandlerAdapter.java:43) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$4.onMessage(StandardWebSocketHandlerAdapter.java:91) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$4.onMessage(StandardWebSocketHandlerAdapter.java:88) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.apache.tomcat.websocket.WsFrameBase.sendMessageBinary(WsFrameBase.java:602) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processDataBinary(WsFrameBase.java:561) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processData(WsFrameBase.java:307) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processInputBuffer(WsFrameBase.java:133) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.processSocketRead(WsFrameClient.java:95) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.resumeProcessing(WsFrameClient.java:212) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.access$500(WsFrameClient.java:31) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.doResumeProcessing(WsFrameClient.java:189) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.completed(WsFrameClient.java:163) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.completed(WsFrameClient.java:148) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.AsyncChannelWrapperSecure$WrapperFuture.complete(AsyncChannelWrapperSecure.java:471) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.AsyncChannelWrapperSecure$ReadTask.run(AsyncChannelWrapperSecure.java:338) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+
+2022-04-29 21:33:10.182 ERROR 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.handler.WebSocketClientHandler   : closed : 99015c5f-b2a8-507c-cebe-cbbadf335160 | status : CloseStatus[code=1011, reason=null] 
+2022-04-29 21:33:10.182  INFO 1709 --- [WebSocketClient-SecureIO-1] c.e.p.s.u.UpbitSocketClientService       : 99015c5f-b2a8-507c-cebe-cbbadf335160 notified : subscriber notified wait for 5000 
+2022-04-29 21:33:10.201  INFO 1709 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-04-29 21:33:10.223  INFO 1709 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

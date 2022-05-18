@@ -1,0 +1,9 @@
+package com.example.pullingcoinapplication.repository.upbitTickRepository;
+
+import com.example.pullingcoinapplication.entity.upbit.upbitTick.coins.UpbitTickKrwBch;
+import com.example.pullingcoinapplication.entity.upbit.upbitTick.coins.UpbitTickKrwBtc;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface UpbitTickKrwBtcRepository extends JpaRepository<UpbitTickKrwBtc, Long>, UpbitCommonJpaInterface {
+        }
