@@ -25,7 +25,7 @@ import java.util.Map;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class UbitSocketClientRestartCronJob {
+public class UpbitSocketClientRestartCronJob {
 
     private final UpbitSocketClientService upbitSocketClientService;
 

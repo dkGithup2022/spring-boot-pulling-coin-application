@@ -1,8 +1,10 @@
 
 logging:
   file:
-    name: logs/restTest0504
+    name: logs/v1Logs.log
     path: logs/
+server:
+  port:
 
 ---
 #test 환경
