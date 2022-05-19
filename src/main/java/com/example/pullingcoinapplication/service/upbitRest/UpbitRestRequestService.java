@@ -39,7 +39,7 @@ public class UpbitRestRequestService {
                 = restTemplate.getForEntity(uri, String.class);
 
         List<UpbitTick> ticks = Arrays.asList(objectMapper.readValue(response.getBody(), UpbitTick[].class));
-        ticks.stream().forEach(t->t.setCallType(CallType.RESTAPI));
+        ticks.stream().forEach(t -> t.setCallType(CallType.RESTAPI));
         return ticks;
     }
 
@@ -49,7 +49,7 @@ public class UpbitRestRequestService {
         uri += "?market=" + upbitCoinCode.toString();
         uri += "&count=200";
         uri += "&cursor=" + sequentialId;
-        System.out.println(uri);
+        log.info("Call rest api :  {}", uri);
         ResponseEntity<String> response
                 = restTemplate.getForEntity(uri, String.class);
         // 에러 처리 ... TOO many req
@@ -62,7 +62,7 @@ public class UpbitRestRequestService {
         Thread.sleep(200);
     }
 
-    public List<UpbitTick>  getTicksBetweenTimeStampFromRest(UpbitCoinCode code, Long from, long to) throws InterruptedException {
+    public List<UpbitTick> getTicksBetweenTimeStampFromRest(UpbitCoinCode code, Long from, long to) throws InterruptedException {
         List<UpbitTick> currentTicks = getTicksBeforeSequentialIdSafe(code, to * 1000);
         currentTicks = currentTicks.stream()
                 .distinct()
@@ -71,12 +71,16 @@ public class UpbitRestRequestService {
 
         while (currentTicks.get(0).getSequentialId() > from * 1000) {
             List<UpbitTick> restTicks = getTicksBeforeSequentialIdSafe(code, currentTicks.get(0).getSequentialId());
+            // TODO : error 처리 -> try catch 로 변경.
+            if (restTicks.size() == 0) {
+                log.error("on sequential id: {} & code : {} , return size = 0", currentTicks.get(0).getSequentialId(), code);
+            }
             restTicks = restTicks.stream().sorted(Comparator.comparing(UpbitTick::getSequentialId)).collect(Collectors.toList());
             currentTicks = Stream.concat(restTicks.stream(), currentTicks.stream()).collect(Collectors.toList());
             pauseAfterRestRequest();
         }
 
-        currentTicks = currentTicks.stream().filter(t -> t.getSequentialId() >= from*1000).collect(Collectors.toList());
+        currentTicks = currentTicks.stream().filter(t -> t.getSequentialId() >= from * 1000).collect(Collectors.toList());
         return currentTicks;
     }
 

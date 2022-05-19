@@ -1,0 +1,187 @@
+2022-05-19 14:28:52.278  INFO 51727 --- [main] c.e.pullingcoinapplication.Application   : Starting Application using Java 16.0.1 on gimdohyeon-ui-MacBookPro.local with PID 51727 (/Users/gimdohyeon/Desktop/code2022/demo/hibernateInterceptor/PullingCoinApplication/target/classes started by gimdohyeon in /Users/gimdohyeon/Desktop/code2022/demo/hibernateInterceptor/PullingCoinApplication)
+2022-05-19 14:28:52.282  INFO 51727 --- [main] c.e.pullingcoinapplication.Application   : The following 1 profile is active: "test"
+2022-05-19 14:28:52.945  INFO 51727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-05-19 14:28:53.075  INFO 51727 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 23 JPA repository interfaces.
+2022-05-19 14:28:53.634  INFO 51727 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8081 (http)
+2022-05-19 14:28:53.643  INFO 51727 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-05-19 14:28:53.644  INFO 51727 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.60]
+2022-05-19 14:28:53.750  INFO 51727 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-05-19 14:28:53.750  INFO 51727 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1418 ms
+2022-05-19 14:28:53.791  INFO 51727 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-05-19 14:28:53.864  INFO 51727 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-05-19 14:28:53.875  INFO 51727 --- [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2022-05-19 14:28:53.985  INFO 51727 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-05-19 14:28:54.007  INFO 51727 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.7.Final
+2022-05-19 14:28:54.077  INFO 51727 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-05-19 14:28:54.129  INFO 51727 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-05-19 14:28:55.042  INFO 51727 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-05-19 14:28:55.047  INFO 51727 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-05-19 14:28:56.257  WARN 51727 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-05-19 14:28:56.494  INFO 51727 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path ''
+2022-05-19 14:28:56.509  INFO 51727 --- [main] c.e.pullingcoinapplication.Application   : Started Application in 4.665 seconds (JVM running for 10.449)
+2022-05-19 14:28:56.913  INFO 51727 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.handler.WebSocketClientHandler   : afterConnectionEstablished, session 61cae913-0083-ba22-b293-c1edbc5f0b68,
+2022-05-19 14:28:56.915  INFO 51727 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : payload: [{"ticket":"UNIQUE_TICKET"},{"type":"trade","codes":["KRW-BTC","KRW-XRP","KRW-ETH","KRW-STX","KRW-SOL","KRW-ADA","KRW-DOT","KRW-BCH","KRW-BAT","KRW-AVAX","KRW-ETC","KRW-AXS","KRW-PLA","KRW-SAND","KRW-SRM","KRW-DOGE","KRW-MANA","KRW-FLOW","KRW-BTG","KRW-ATOM","KRW-MATIC","KRW-ENJ","KRW-CHZ"]}]
+2022-05-19 14:28:56.916  INFO 51727 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : send initial message : TextMessage payload=[[{"ticket"..], byteCount=293, last=true]
+2022-05-19 14:28:56.916  INFO 51727 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : payload: [{"ticket":"UNIQUE_TICKET"},{"type":"trade","codes":["KRW-BTC","KRW-XRP","KRW-ETH","KRW-STX","KRW-SOL","KRW-ADA","KRW-DOT","KRW-BCH","KRW-BAT","KRW-AVAX","KRW-ETC","KRW-AXS","KRW-PLA","KRW-SAND","KRW-SRM","KRW-DOGE","KRW-MANA","KRW-FLOW","KRW-BTG","KRW-ATOM","KRW-MATIC","KRW-ENJ","KRW-CHZ"]}]
+2022-05-19 14:28:56.931  INFO 51727 --- [SimpleAsyncTaskExecutor-1] c.e.p.s.u.UpbitSocketClientService       : upbit socket clinet callback registered | coin : KRW-BTC,KRW-XRP,KRW-ETH,KRW-STX,KRW-SOL,KRW-ADA,KRW-DOT,KRW-BCH,KRW-BAT,KRW-AVAX,KRW-ETC,KRW-AXS,KRW-PLA,KRW-SAND,KRW-SRM,KRW-DOGE,KRW-MANA,KRW-FLOW,KRW-BTG,KRW-ATOM,KRW-MATIC,KRW-ENJ,KRW-CHZ
+2022-05-19 14:30:00.010  INFO 51727 --- [scheduling-1] c.e.p.task.UpbitTicksPeriodicRecheck     : stuff up every 15 min
+2022-05-19 14:30:00.017  INFO 51727 --- [scheduling-1] c.e.p.task.UpbitTicksPeriodicRecheck     :  1652938200017,KRW-BTC | start rechecking  : 
+2022-05-19 14:30:00.393  INFO 51727 --- [scheduling-1] c.e.p.s.u.UpbitRestRequestService        : Call rest api :  https://api.upbit.com/v1/trades/ticks?market=KRW-BTC&count=200&cursor=1652938200023000
+2022-05-19 14:30:50.616  WARN 51727 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=56s613ms).
+2022-05-19 14:30:50.646  INFO 51727 --- [scheduling-1] c.e.p.s.u.UpbitRestRequestService        : Call rest api :  https://api.upbit.com/v1/trades/ticks?market=KRW-BTC&count=200&cursor=1652938075000000
+2022-05-19 14:30:50.817 ERROR 51727 --- [scheduling-1] o.s.s.s.TaskUtils$LoggingErrorHandler    : Unexpected error occurred in scheduled task
+
+java.lang.InterruptedException: sleep interrupted
+	at java.base/java.lang.Thread.sleep(Native Method) ~[na:na]
+	at com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService.pauseAfterRestRequest(UpbitRestRequestService.java:62) ~[classes/:na]
+	at com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService.getTicksBeforeSequentialIdSafe(UpbitRestRequestService.java:92) ~[classes/:na]
+	at com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService.getTicksBetweenTimeStampFromRest(UpbitRestRequestService.java:73) ~[classes/:na]
+	at com.example.pullingcoinapplication.task.UpbitTicksPeriodicRecheck.stuffUpMissingTicks(UpbitTicksPeriodicRecheck.java:46) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:84) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-5.3.18.jar:5.3.18]
+	at org.springframework.scheduling.concurrent.ReschedulingRunnable.run(ReschedulingRunnable.java:95) ~[spring-context-5.3.18.jar:5.3.18]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+
+2022-05-19 14:30:50.823  INFO 51727 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-05-19 14:30:50.833  INFO 51727 --- [SpringApplicationShutdownHook] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2022-05-19 14:30:50.875  WARN 51727 --- [WebSocketClient-SecureIO-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 42102, SQLState: 42S02
+2022-05-19 14:30:50.876 ERROR 51727 --- [WebSocketClient-SecureIO-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Table "UPBIT_TABLE_KRW_ADA" not found; SQL statement:
+select upbittickk0_.code as code1_0_0_, upbittickk0_.sequential_id as sequenti2_0_0_, upbittickk0_.ask_bid as ask_bid3_0_0_, upbittickk0_.call_type as call_typ4_0_0_, upbittickk0_.change as change5_0_0_, upbittickk0_.change_price as change_p6_0_0_, upbittickk0_.prev_closing_price as prev_clo7_0_0_, upbittickk0_.stream_type as stream_t8_0_0_, upbittickk0_.timestamp as timestam9_0_0_, upbittickk0_.trade_date_utc as trade_d10_0_0_, upbittickk0_.trade_price as trade_p11_0_0_, upbittickk0_.trade_time_utc as trade_t12_0_0_, upbittickk0_.trade_timestamp as trade_t13_0_0_, upbittickk0_.trade_volume as trade_v14_0_0_, upbittickk0_.type as type15_0_0_ from upbit_table_krw_ada upbittickk0_ where upbittickk0_.code=? and upbittickk0_.sequential_id=? [42102-200]
+2022-05-19 14:30:50.885  INFO 51727 --- [WebSocketClient-SecureIO-1] o.h.e.internal.DefaultLoadEventListener  : HHH000327: Error performing load command
+
+org.hibernate.exception.SQLGrammarException: could not prepare statement
+	at org.hibernate.exception.internal.SQLExceptionTypeDelegate.convert(SQLExceptionTypeDelegate.java:63) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:37) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:186) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:151) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.prepareQueryStatement(Loader.java:2122) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2059) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.executeQueryStatement(Loader.java:2037) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.doQuery(Loader.java:956) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:357) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:327) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.Loader.loadEntity(Loader.java:2440) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.entity.AbstractEntityLoader.load(AbstractEntityLoader.java:77) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.loader.entity.AbstractEntityLoader.load(AbstractEntityLoader.java:61) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:4521) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:4511) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:571) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:539) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:208) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:327) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:108) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:74) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:118) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1231) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1220) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.access$2100(SessionImpl.java:202) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.doLoad(SessionImpl.java:2835) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.lambda$load$1(SessionImpl.java:2812) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.perform(SessionImpl.java:2768) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl$IdentifierLoadAccessImpl.load(SessionImpl.java:2812) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.get(SessionImpl.java:1024) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.entityIsDetached(DefaultMergeEventListener.java:306) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:172) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.internal.DefaultMergeEventListener.onMerge(DefaultMergeEventListener.java:70) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.fireMerge(SessionImpl.java:829) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.internal.SessionImpl.merge(SessionImpl.java:816) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at jdk.internal.reflect.GeneratedMethodAccessor128.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311) ~[spring-orm-5.3.18.jar:5.3.18]
+	at jdk.proxy2/jdk.proxy2.$Proxy95.merge(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:640) ~[spring-data-jpa-2.6.3.jar:2.6.3]
+	at jdk.internal.reflect.GeneratedMethodAccessor123.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567) ~[na:na]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:289) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:137) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:121) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:529) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:639) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:163) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:138) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:80) ~[spring-data-commons-2.6.3.jar:2.6.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:388) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:174) ~[spring-data-jpa-2.6.3.jar:2.6.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:215) ~[spring-aop-5.3.18.jar:5.3.18]
+	at jdk.proxy2/jdk.proxy2.$Proxy105.save(Unknown Source) ~[na:na]
+	at com.example.pullingcoinapplication.service.UpbitTickService.save(UpbitTickService.java:27) ~[classes/:na]
+	at com.example.pullingcoinapplication.service.UpbitTickService$$FastClassBySpringCGLIB$$12990e1a.invoke(<generated>) ~[classes/:na]
+	at org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218) ~[spring-core-5.3.18.jar:5.3.18]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:689) ~[spring-aop-5.3.18.jar:5.3.18]
+	at com.example.pullingcoinapplication.service.UpbitTickService$$EnhancerBySpringCGLIB$$cc90dee8.save(<generated>) ~[classes/:na]
+	at com.example.pullingcoinapplication.socket.handler.WebSocketClientHandler.handleMessage(WebSocketClientHandler.java:53) ~[classes/:na]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.handleBinaryMessage(StandardWebSocketHandlerAdapter.java:124) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter.access$100(StandardWebSocketHandlerAdapter.java:43) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$4.onMessage(StandardWebSocketHandlerAdapter.java:91) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.springframework.web.socket.adapter.standard.StandardWebSocketHandlerAdapter$4.onMessage(StandardWebSocketHandlerAdapter.java:88) ~[spring-websocket-5.3.18.jar:5.3.18]
+	at org.apache.tomcat.websocket.WsFrameBase.sendMessageBinary(WsFrameBase.java:602) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processDataBinary(WsFrameBase.java:561) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processData(WsFrameBase.java:307) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameBase.processInputBuffer(WsFrameBase.java:133) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.processSocketRead(WsFrameClient.java:95) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.resumeProcessing(WsFrameClient.java:212) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient.access$500(WsFrameClient.java:31) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.doResumeProcessing(WsFrameClient.java:189) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.completed(WsFrameClient.java:163) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.WsFrameClient$WsFrameClientCompletionHandler.completed(WsFrameClient.java:148) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.AsyncChannelWrapperSecure$WrapperFuture.complete(AsyncChannelWrapperSecure.java:471) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at org.apache.tomcat.websocket.AsyncChannelWrapperSecure$ReadTask.run(AsyncChannelWrapperSecure.java:338) ~[tomcat-embed-websocket-9.0.60.jar:9.0.60]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:831) ~[na:na]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "UPBIT_TABLE_KRW_ADA" not found; SQL statement:
+select upbittickk0_.code as code1_0_0_, upbittickk0_.sequential_id as sequenti2_0_0_, upbittickk0_.ask_bid as ask_bid3_0_0_, upbittickk0_.call_type as call_typ4_0_0_, upbittickk0_.change as change5_0_0_, upbittickk0_.change_price as change_p6_0_0_, upbittickk0_.prev_closing_price as prev_clo7_0_0_, upbittickk0_.stream_type as stream_t8_0_0_, upbittickk0_.timestamp as timestam9_0_0_, upbittickk0_.trade_date_utc as trade_d10_0_0_, upbittickk0_.trade_price as trade_p11_0_0_, upbittickk0_.trade_time_utc as trade_t12_0_0_, upbittickk0_.trade_timestamp as trade_t13_0_0_, upbittickk0_.trade_volume as trade_v14_0_0_, upbittickk0_.type as type15_0_0_ from upbit_table_krw_ada upbittickk0_ where upbittickk0_.code=? and upbittickk0_.sequential_id=? [42102-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:205) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.message.DbException.get(DbException.java:181) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableOrView(Parser.java:7628) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.readTableFilter(Parser.java:1970) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectFromPart(Parser.java:2827) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelect(Parser.java:2959) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuerySub(Parser.java:2817) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseSelectUnion(Parser.java:2649) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parseQuery(Parser.java:2620) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parsePrepared(Parser.java:868) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:843) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.parse(Parser.java:815) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.command.Parser.prepareCommand(Parser.java:738) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareLocal(Session.java:657) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.engine.Session.prepareCommand(Session.java:595) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:76) ~[h2-1.4.200.jar:1.4.200]
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:352) ~[h2-1.4.200.jar:1.4.200]
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:337) ~[HikariCP-4.0.3.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java) ~[HikariCP-4.0.3.jar:na]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:149) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:176) ~[hibernate-core-5.6.7.Final.jar:5.6.7.Final]
+	... 91 common frames omitted
+
+2022-05-19 14:30:50.897  INFO 51727 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-05-19 14:30:50.918  INFO 51727 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
