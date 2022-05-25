@@ -1,8 +1,8 @@
 
-logging:
-  file:
-    name: logs/restTest0504
-    path: logs/
+server:
+  port: 8081
+
+
 
 ---
 #test 환경
@@ -36,7 +36,10 @@ property:
       cronCommand : 00 00 00 * * *
 
 
-
+logging:
+  file:
+    path: /var/server/logs/test
+    name: v1.log
 
 ---
 #prod 환경
@@ -67,6 +70,8 @@ property:
       cronCommand : 00 00 00 * * *
 
 
-
-
+logging:
+  file:
+    path: /var/server/logs/prod
+    name: v1.log
 
