@@ -74,6 +74,7 @@ public class UpbitRestRequestService {
             // TODO : error 처리 -> try catch 로 변경.
             if (restTicks.size() == 0) {
                 log.error("on sequential id: {} & code : {} , return size = 0", currentTicks.get(0).getSequentialId(), code);
+                break;
             }
             restTicks = restTicks.stream().sorted(Comparator.comparing(UpbitTick::getSequentialId)).collect(Collectors.toList());
             currentTicks = Stream.concat(restTicks.stream(), currentTicks.stream()).collect(Collectors.toList());
