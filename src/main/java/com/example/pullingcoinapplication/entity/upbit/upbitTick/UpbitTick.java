@@ -15,8 +15,6 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @Data
-@Getter
-@Setter
 @IdClass(UpbitTickPk.class)
 public class UpbitTick {
 

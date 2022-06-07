@@ -5,6 +5,7 @@ import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickPk;
 import com.example.pullingcoinapplication.repository.upbitTickRepository.UpbitTickKrwDotRepository;
+import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
 import com.example.pullingcoinapplication.util.UpbitCodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -14,8 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;

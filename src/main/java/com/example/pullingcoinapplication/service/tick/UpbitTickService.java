@@ -1,4 +1,4 @@
-package com.example.pullingcoinapplication.service;
+package com.example.pullingcoinapplication.service.tick;
 
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;

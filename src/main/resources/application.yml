@@ -1,7 +1,15 @@
 
+
+spring:
+  profile:
+    active: test
+
 server:
   port: 8081
 
+logging:
+  file:
+    name: logs/log_v1_1.log
 
 
 ---
@@ -13,7 +21,7 @@ spring:
 
   datasource:
     driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;
     username: sa
     password:
 
@@ -23,7 +31,7 @@ spring:
       enabled: true
 
   jpa:
-    show-sql: false
+    show-sql: true
     generate-ddl: true
 
 property:
@@ -35,11 +43,6 @@ property:
     restartSessions:
       cronCommand : 00 00 00 * * *
 
-
-logging:
-  file:
-    path: /var/server/logs/test
-    name: v1.log
 
 ---
 #prod 환경
@@ -70,8 +73,5 @@ property:
       cronCommand : 00 00 00 * * *
 
 
-logging:
-  file:
-    path: /var/server/logs/prod
-    name: v1.log
+
 

@@ -4,7 +4,7 @@ package com.example.pullingcoinapplication.socket.handler;
 import com.example.pullingcoinapplication.entity.upbit.CallType;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
-import com.example.pullingcoinapplication.service.UpbitTickService;
+import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.socket.pubsub.SocketClientOnFailPublisher;
 import com.example.pullingcoinapplication.socket.pubsub.SocketClientOnFailSubscriber;
 import com.fasterxml.jackson.databind.ObjectMapper;
