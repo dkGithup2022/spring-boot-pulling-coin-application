@@ -26,11 +26,11 @@ public class UpbitTicksPeriodicRecheck {
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitTickService upbitTickService;
 
-    @Value("${property.upbitCron.doubleCheck.period}")
+    @Value("${property.upbitCron.tick.doubleCheck.period}")
     private int checkPeriod;
 
 
-    @Scheduled(cron = "${property.upbitCron.doubleCheck.cronCommand}")
+    @Scheduled(cron = "${property.upbitCron.tick.doubleCheck.cronCommand}")
     public void stuffUpMissingTicks() throws JsonProcessingException, InterruptedException {
 
         log.info("stuff up every {} min",checkPeriod);

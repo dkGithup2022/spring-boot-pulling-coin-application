@@ -3,6 +3,7 @@ package com.example.pullingcoinapplication.service.upbitRest;
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
 import com.example.pullingcoinapplication.entity.upbit.CallType;
+import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -26,6 +27,17 @@ import java.util.stream.Stream;
 public class UpbitRestRequestService {
 
     private final ObjectMapper objectMapper;
+
+    public List<UpbitOrderbook> getLatestOrderBooks(UpbitCoinCode upbitCoinCode) throws JsonProcessingException {
+        RestTemplate restTemplate = new RestTemplate();
+        String uri = Uri.UPBIT_REST_ORDERBOOK_URI.getAddress();
+        uri += "?market=" + upbitCoinCode.toString();
+        System.out.println(uri);
+        ResponseEntity<String> response
+                = restTemplate.getForEntity(uri, String.class);
+        List<UpbitOrderbook> books = Arrays.asList(objectMapper.readValue(response.getBody(), UpbitOrderbook[].class));
+        return books;
+    }
 
 
     //TODO : string builder
@@ -100,4 +112,5 @@ public class UpbitRestRequestService {
         }
         return restTicks;
     }
+
 }

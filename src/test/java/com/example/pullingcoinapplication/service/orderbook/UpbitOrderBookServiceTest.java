@@ -36,6 +36,7 @@ class UpbitOrderBookServiceTest {
     @Test
     void empty(){}
 
+    /*
     @Test
     void save() throws JsonProcessingException {
         UpbitOrderbook upbitOrderbook = getNewOrderBook(10L,3);
@@ -86,5 +87,7 @@ class UpbitOrderBookServiceTest {
     public OrderBookUnit getNewOrderBookUnit(){
         return new OrderBookUnit(random.nextDouble(),random.nextDouble(),random.nextDouble(), random.nextDouble());
     }
+
+     */
 
 }

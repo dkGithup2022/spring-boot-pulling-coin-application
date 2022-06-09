@@ -31,17 +31,22 @@ spring:
       enabled: true
 
   jpa:
-    show-sql: true
+    show-sql: false
     generate-ddl: true
 
 property:
   upbitCron:
-    doubleCheck:
-      cronCommand: 00 */15 * * * *
-      period: 15
+    tick:
+      doubleCheck:
+        cronCommand: 00 */15 * * * *
+        period: 15
+      restartSessions:
+        cronCommand : 00 00 00 * * *
 
-    restartSessions:
-      cronCommand : 00 00 00 * * *
+    orderbook:
+      restartSessions:
+        cronCommand: 00 00 */32 * * *
+
 
 
 ---
@@ -65,12 +70,17 @@ spring:
 
 property:
   upbitCron:
-    doubleCheck:
-      cronCommand: 00 */15 * * * *
-      period: 15
+    tick:
+      doubleCheck:
+        cronCommand: 00 */15 * * * *
+        period: 15
+      restartSessions:
+        cronCommand : 00 00 00 * * *
 
-    restartSessions:
-      cronCommand : 00 00 00 * * *
+    orderbook:
+      restartSessions:
+        cronCommand: 00 10 00 */5 * *
+
 
 
 

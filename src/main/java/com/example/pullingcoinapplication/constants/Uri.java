@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public enum Uri {
     UPBIT_SOCKET_URI("wss://api.upbit.com/websocket/v1"),
-    UPBIT_REST_TICK_URI("https://api.upbit.com/v1/trades/ticks");
-
+    UPBIT_REST_TICK_URI("https://api.upbit.com/v1/trades/ticks"),
+    UPBIT_REST_ORDERBOOK_URI("https://api.upbit.com/v1/orderbook");
     private String address;
 }

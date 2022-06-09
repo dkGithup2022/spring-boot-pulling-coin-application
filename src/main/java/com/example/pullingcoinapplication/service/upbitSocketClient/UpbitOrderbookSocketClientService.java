@@ -2,12 +2,13 @@ package com.example.pullingcoinapplication.service.upbitSocketClient;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
+import com.example.pullingcoinapplication.constants.task.TaskType;
+import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
 import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
-import com.example.pullingcoinapplication.service.tick.UpbitTickService;
+
+import com.example.pullingcoinapplication.service.orderbook.UpbitOrderBookService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
-import com.example.pullingcoinapplication.socket.handler.WebSocketClientHandler;
+import com.example.pullingcoinapplication.socket.handler.UpbitOrderBookSocketClientHandler;
 import com.example.pullingcoinapplication.socket.pubsub.SocketClientOnFailSubscriber;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
@@ -26,24 +27,34 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
+
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
+public class UpbitOrderbookSocketClientService implements SocketClientOnFailSubscriber {
 
-    private final WebSocketClientHandler webSocketHandler;
-    private final Map<SocketClientIndicator, WebSocketSession> webSocketSessionMap;
+    // 다른 부분 (1) : private final WebSocketClientHandler webSocketHandler;
+    private final UpbitOrderBookSocketClientHandler upbitOrderBookSocketClientHandler;
+    private final Map<TaskType, Map> taskMap;
+    // TODO: 서비스끼리 연계됨 ... 분리가 잘 안되있어. <-> 예외케이스 인데 그냥 두면 안될까
     private final UpbitRestRequestService upbitRestRequestService;
-    private final UpbitTickService upbitTickService;
 
+    // 다른 부분 (2) : private final UpbitTickService upbitTickService;
+    private final UpbitOrderBookService upbitOrderBookService;
+
+    // TODO: 처음 세팅 입력받는 시점에 지정되게 하고, 나머지 런은 분리하는게 좋을것 같아.
     private URI targetUri;
+    private Map<SocketClientIndicator, WebSocketSession> sessionMap;
 
 
     // TODO : 쓸모 없는 결합 제거. pubsub
+    // TODO : 여기 target Uri 의 사용이 이상함.
     @PostConstruct
     public void setPubSub() throws URISyntaxException {
-        webSocketHandler.setSubscriber(this);
+        // 다른부분 (3) 사용 변수가 다르다.
+        upbitOrderBookSocketClientHandler.setSubscriber(this);
         this.targetUri = new URI(Uri.UPBIT_SOCKET_URI.getAddress());
+        sessionMap = taskMap.get(TaskType.UPBIT_ORDERBOOK);
     }
 
 
@@ -59,12 +70,12 @@ public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
 
         try {
             // TODO :  스트림으로
-            for (SocketClientIndicator indicator : webSocketSessionMap.keySet()) {
+            for (SocketClientIndicator indicator : sessionMap.keySet()) {
                 if (indicator.getSessionId() == key) {
                     UpbitCoinCode[] coins = indicator.getCoins();
                     log.error("try to close {} ", indicator.coinsToString());
-                    webSocketSessionMap.get(indicator).close();
-                    webSocketSessionMap.remove(indicator);
+                    sessionMap.get(indicator).close();
+                    sessionMap.remove(indicator);
                     log.error("try to rerun {}", indicator.coinsToString());
                     runSocketClientListener(targetUri, coins);
                     stuffGapBetweenRestart(coins);
@@ -77,25 +88,25 @@ public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
         }
     }
 
-    public void runSocketClientListenerSafe(URI uri, UpbitCoinCode[] code) throws InterruptedException{
-        try{
-            runSocketClientListener(uri,code);
-        }catch (HttpClientErrorException clientErrorException) {
+    public void runSocketClientListenerSafe(URI uri, UpbitCoinCode[] code) throws InterruptedException {
+        try {
+            runSocketClientListener(uri, code);
+        } catch (HttpClientErrorException clientErrorException) {
             if (clientErrorException.getRawStatusCode() == 429) {
                 Thread.sleep(2000);
-                runSocketClientListener(uri,code);
+                runSocketClientListener(uri, code);
             }
         }
     }
 
 
-    public void runSocketClientListener(URI uri, UpbitCoinCode[] code) {
+    public void runSocketClientListener(URI uri, UpbitCoinCode[] codes) {
         ListenableFuture<WebSocketSession> listenableFuture = newClientSession(uri);
-        setCallbackAndRegisterSessionMap(listenableFuture, code);
+        setCallbackAndRegisterSessionMap(listenableFuture, codes);
     }
 
     public void stuffGapBetweenRestart(UpbitCoinCode[] codes) throws JsonProcessingException, InterruptedException {
-        for(UpbitCoinCode code : codes) {
+        for (UpbitCoinCode code : codes) {
             stuffGapBetweenRestart(code);
         }
     }
@@ -107,14 +118,12 @@ public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
                 result -> {
                     SocketClientIndicator indicator = new SocketClientIndicator(codes, result.getId());
                     sendInitialMessage(result, codes);
-                    webSocketSessionMap.put(indicator, result);
+                    sessionMap.put(indicator, result);
                     log.info("upbit socket clinet callback registered | coin : {}", indicator.coinsToString());
-
                 }, ex -> {
                     log.error("socket connection fail : {}", ex.getMessage());
                 });
     }
-
 
 
     public void pauseAfterSockRequest() throws InterruptedException {
@@ -122,7 +131,8 @@ public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
     }
 
     private ListenableFuture<WebSocketSession> newClientSession(URI uri) {
-        return new StandardWebSocketClient().doHandshake(webSocketHandler, null, uri);
+        // 다름 부분 (3) 변수 이름이 다르다.
+        return new StandardWebSocketClient().doHandshake(upbitOrderBookSocketClientHandler, null, uri);
     }
 
     private void sendInitialMessage(WebSocketSession session, UpbitCoinCode[] coins) {
@@ -135,28 +145,31 @@ public class UpbitSocketClientService implements SocketClientOnFailSubscriber {
     }
 
 
+    // 다른 부분(4) : 보내는 커맨드 입력이 다르다.
     private TextMessage getInitialMessage(UpbitCoinCode[] coins) {
+        // TODO : 틀린 그림 찾기
         String payload = "";
         for (UpbitCoinCode coin : coins) {
             payload += "\"" + coin.toString() + "\",";
         }
-        log.info("payload: {}", "[{\"ticket\":\"UNIQUE_TICKET\"},{\"type\":\"trade\",\"codes\":[" + payload.substring(0, payload.length() - 1) + "]}]");
-
-        return new TextMessage("[{\"ticket\":\"UNIQUE_TICKET\"},{\"type\":\"trade\",\"codes\":[" + payload.substring(0, payload.length() - 1) + "]}]");
+        log.info("payload: {}", "[{\"ticket\":\"give_me_orderbook\"},{\"type\":\"orderbook\",\"codes\":[" + payload.substring(0, payload.length() - 1) + "]}]");
+        return new TextMessage("[{\"ticket\":\"give_me_orderbook\"},{\"type\":\"orderbook\",\"codes\":[" + payload.substring(0, payload.length() - 1) + "]}]");
     }
-
 
 
     private void stuffGapBetweenRestart(UpbitCoinCode code) throws JsonProcessingException, InterruptedException {
         Thread.sleep(100);
-        List<UpbitTick> ticks = upbitRestRequestService.getLastestTicks(code);
+        //다른 부분 (5) rest 로 불러야하는 함수가 다르다.
+        List<UpbitOrderbook> books = upbitRestRequestService.getLatestOrderBooks(code);
         log.info("call rest api / codes : {}", code);
-        log.info("ticks: {}", ticks);
-        for(UpbitTick tick: ticks){
-            tick = UpbitTickFactory.of(tick);
-            upbitTickService.saveWhenNotExist(tick);
+        log.info("books: {}", books);
+        // 다른 부분 (6) : 호출해야하는 rest 함수가 다르다.
+        for (UpbitOrderbook book : books) {
+            upbitOrderBookService.save(book);
         }
     }
+
+    // 다른부분 7 : 대체적으로 tick 인 네이밍을 바꿔야함.
 
 
 }

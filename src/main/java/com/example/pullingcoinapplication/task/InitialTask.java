@@ -3,7 +3,8 @@ package com.example.pullingcoinapplication.task;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitSocketClientService;
+import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitOrderbookSocketClientService;
+import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitTickSocketClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -11,22 +12,29 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Arrays;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class InitialTask implements ApplicationRunner {
-    private final UpbitSocketClientService upbitSocketClientService;
-
+    private final UpbitTickSocketClientService upbitTickSocketClientService;
+    private final UpbitOrderbookSocketClientService upbitOrderbookSocketClientService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        testrun();
+        pullUpbitTicks();
+        pullUptitOrderbook();
     }
 
-    public void testrun() throws Exception{
-        upbitSocketClientService.runSocketClientListener(
+    private void pullUpbitTicks() throws Exception{
+        upbitTickSocketClientService.runSocketClientListener(
+                new URI(Uri.UPBIT_SOCKET_URI.getAddress()),
+                UpbitCoinCode.values()
+        );
+    }
+
+
+    private void pullUptitOrderbook() throws Exception{
+        upbitOrderbookSocketClientService.runSocketClientListener(
                 new URI(Uri.UPBIT_SOCKET_URI.getAddress()),
                 UpbitCoinCode.values()
         );

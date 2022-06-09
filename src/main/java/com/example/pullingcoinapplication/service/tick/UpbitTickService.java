@@ -18,6 +18,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class UpbitTickService {
 
     private final UpbitRespositoryPicker upbitRespositoryPicker;
@@ -39,7 +40,7 @@ public class UpbitTickService {
         if(repository.findBySequentialId(upbitTick.getSequentialId()) != null){
             return;
         }
-        System.out.println("save unfound tick : " + upbitTick);
+        log.info("UpbitTick | save unfound tick : " + upbitTick);
         this.save(upbitTick);
     }
 
