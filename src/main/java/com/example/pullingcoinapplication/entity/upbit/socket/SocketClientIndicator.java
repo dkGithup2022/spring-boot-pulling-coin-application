@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class SocketClientIndicator {
+    // List 로
     private UpbitCoinCode[] coins;
     private String sessionId;
 

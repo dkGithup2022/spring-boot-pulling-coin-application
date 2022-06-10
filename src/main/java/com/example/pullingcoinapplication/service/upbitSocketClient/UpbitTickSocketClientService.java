@@ -162,5 +162,4 @@ public class UpbitTickSocketClientService implements SocketClientOnFailSubscribe
         }
     }
 
-
 }

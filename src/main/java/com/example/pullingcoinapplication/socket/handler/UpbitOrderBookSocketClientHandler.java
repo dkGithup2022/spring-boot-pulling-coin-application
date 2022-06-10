@@ -28,28 +28,10 @@ import java.util.Date;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class UpbitOrderBookSocketClientHandler implements WebSocketHandler, SocketClientOnFailPublisher {
+public class UpbitOrderBookSocketClientHandler extends WebSocketClientPublisherHandler {
 
     private final UpbitOrderBookService upbitOrderBookService;
     private final ObjectMapper objectMapper;
-    private SocketClientOnFailSubscriber subscriber;
-
-
-    @Override
-    public void setSubscriber(SocketClientOnFailSubscriber subscriber) {
-        this.subscriber = subscriber;
-    }
-
-    @Override
-    public void notifySubscriber(String key) {
-        subscriber.notified(key);
-    }
-
-    @Override
-    public void afterConnectionEstablished(WebSocketSession session) throws Exception {
-        log.info("afterConnectionEstablished, session {},", session.getId());
-    }
-
 
     // MEMO (1)
     @Override
@@ -60,27 +42,4 @@ public class UpbitOrderBookSocketClientHandler implements WebSocketHandler, Sock
     }
 
 
-    @Override
-    public void handleTransportError(WebSocketSession session, Throwable exception) throws Exception {
-        log.info("on error : {}", exception.getMessage());
-        notifySubscriber(session.getId());
-    }
-
-    // MEMO (2) -> 메모 1,2 정도를 제외하면 클라이언트 핸들러가 달라지는 경우는 없음 . -> 클래스 하나에 사용부분에서 다형적으로 type 설정만 해도 ?
-    @Override
-    public void afterConnectionClosed(WebSocketSession session, CloseStatus closeStatus) throws Exception {
-        log.error("closed : {} | status : {} ", session.getId(), closeStatus.toString());
-        if (isInvalidClosing(closeStatus)) {
-            notifySubscriber(session.getId());
-        }
-    }
-
-    @Override
-    public boolean supportsPartialMessages() {
-        return false;
-    }
-
-    private boolean isInvalidClosing(CloseStatus closeStatus) {
-        return closeStatus.getCode() != 1000 && closeStatus.getCode() != 1007;
-    }
 }
