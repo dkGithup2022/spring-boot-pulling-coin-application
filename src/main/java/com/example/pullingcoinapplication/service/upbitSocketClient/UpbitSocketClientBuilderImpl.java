@@ -1,4 +1,4 @@
-package com.example.pullingcoinapplication.service.upbitSocketClient.d0610;
+package com.example.pullingcoinapplication.service.upbitSocketClient;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
@@ -36,7 +36,6 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
     private final SocketClientHandlerFactory socketClientHandlerFactory;
     private final Map<TaskType, Map> taskMap;
 
-    // 얘 테스트
     private final Map<TaskType, AbstractUpbitSocketClient> taskSocketMap;
 
     private final UpbitRestRequestService upbitRestRequestService;

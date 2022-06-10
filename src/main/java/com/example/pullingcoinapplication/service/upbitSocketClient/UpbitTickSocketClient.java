@@ -1,4 +1,4 @@
-package com.example.pullingcoinapplication.service.upbitSocketClient.d0610;
+package com.example.pullingcoinapplication.service.upbitSocketClient;
 
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
@@ -9,6 +9,7 @@ import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
+import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
 import com.example.pullingcoinapplication.socket.handler.WebSocketClientPublisherHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.AccessLevel;
@@ -23,7 +24,7 @@ import java.util.Map;
 
 @Setter(AccessLevel.PRIVATE)
 @Slf4j
-public class UpbitTickSocketClient extends AbstractUpbitSocketClient{
+public class UpbitTickSocketClient extends AbstractUpbitSocketClient {
 
     private UpbitTickService tickService;
 

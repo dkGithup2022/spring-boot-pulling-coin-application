@@ -2,7 +2,7 @@ package com.example.pullingcoinapplication.configuration;
 
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
-import com.example.pullingcoinapplication.service.upbitSocketClient.d0610.AbstractUpbitSocketClient;
+import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.socket.WebSocketSession;

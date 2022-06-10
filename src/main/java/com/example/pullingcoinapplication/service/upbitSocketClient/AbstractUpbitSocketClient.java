@@ -1,4 +1,4 @@
-package com.example.pullingcoinapplication.service.upbitSocketClient.d0610;
+package com.example.pullingcoinapplication.service.upbitSocketClient;
 
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;

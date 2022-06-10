@@ -41,11 +41,11 @@ property:
         cronCommand: 00 */15 * * * *
         period: 15
       restartSessions:
-        cronCommand : 00 */45 * * * *
+        cronCommand : 00 02 00 * * *
 
     orderbook:
       restartSessions:
-        cronCommand: 00 */46 * * * *
+        cronCommand: 00 10 00 */5 * *
 
 
 

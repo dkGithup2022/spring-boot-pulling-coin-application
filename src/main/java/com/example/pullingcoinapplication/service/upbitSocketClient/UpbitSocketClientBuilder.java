@@ -1,9 +1,8 @@
-package com.example.pullingcoinapplication.service.upbitSocketClient.d0610;
+package com.example.pullingcoinapplication.service.upbitSocketClient;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitSocketClientManager;
 
 import java.util.List;
 
