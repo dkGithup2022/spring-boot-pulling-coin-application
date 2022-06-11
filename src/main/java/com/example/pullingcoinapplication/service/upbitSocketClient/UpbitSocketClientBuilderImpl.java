@@ -25,6 +25,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @Service
@@ -34,16 +35,14 @@ import java.util.Map;
 @ToString
 public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
     private final SocketClientHandlerFactory socketClientHandlerFactory;
-    private final Map<TaskType, Map> taskMap;
 
     private final Map<TaskType, AbstractUpbitSocketClient> taskSocketMap;
-
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitOrderBookService upbitOrderBookService;
     private final UpbitTickService upbitTickService;
 
     private URI uri;
-    private Map<SocketClientIndicator, WebSocketSession> sessionMap;
+   // private Map<SocketClientIndicator, WebSocketSession> sessionMap;
     private WebSocketClientPublisherHandler socketHandler;
     private TaskType taskType;
     private VendorType vendorType;
@@ -73,8 +72,8 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
             throw new RuntimeException("missing arg : " + this.toString());
         try {
             this.uri = createUri();
-            sessionMap = taskMap.get(taskType);
-            AbstractUpbitSocketClient socketClient =  newSocketClient();
+           // sessionMap = taskMap.get(taskType);
+            AbstractUpbitSocketClient socketClient = newSocketClient();
             registerTaskMap(socketClient);
             return socketClient;
         } catch (Exception e) {
@@ -85,6 +84,10 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
 
     private boolean isInitializable() {
         return (isValidTaskType() && vendorType != null && codes != null);
+    }
+
+    private boolean isValidTaskType() {
+        return (taskType != null && Arrays.asList(TaskType.values()).contains(taskType));
     }
 
     private URI createUri() throws URISyntaxException {
@@ -98,15 +101,9 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
         }
     }
 
-    private boolean isValidTaskType() {
-        return (taskType != null && Arrays.asList(TaskType.values()).contains(taskType));
-    }
-
-
     private ListenableFuture<WebSocketSession> newClientSession() {
         return new StandardWebSocketClient().doHandshake(socketHandler, null, uri);
     }
-
 
     private AbstractUpbitSocketClient newSocketClient() {
         AbstractUpbitSocketClient socketClient;
@@ -114,7 +111,6 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
             socketClient = new UpbitTickSocketClient(
                     upbitRestRequestService,
                     uri,
-                    taskMap.get(taskType),
                     socketClientHandlerFactory.getHandler(taskType, vendorType),
                     taskType,
                     vendorType,
@@ -125,7 +121,6 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
             socketClient = new UpbitOrderbookSocketClient(
                     upbitRestRequestService,
                     uri,
-                    taskMap.get(taskType),
                     socketClientHandlerFactory.getHandler(taskType, vendorType),
                     taskType,
                     vendorType,
@@ -138,15 +133,15 @@ public class UpbitSocketClientBuilderImpl implements UpbitSocketClientBuilder {
         return socketClient;
     }
 
-    private void registerTaskMap(AbstractUpbitSocketClient socketClient){
-        switch (socketClient.getTaskType()){
+    private void registerTaskMap(AbstractUpbitSocketClient socketClient) {
+        switch (socketClient.getTaskType()) {
             case UPBIT_ORDERBOOK:
-                taskSocketMap.put(TaskType.UPBIT_ORDERBOOK,socketClient);
+                taskSocketMap.put(TaskType.UPBIT_ORDERBOOK, socketClient);
                 break;
             case UPBIT_TICK:
-                taskSocketMap.put(TaskType.UPBIT_TICK,socketClient);
+                taskSocketMap.put(TaskType.UPBIT_TICK, socketClient);
                 break;
-            default :
+            default:
                 throw new RuntimeException("task map match fail");
         }
     }

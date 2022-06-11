@@ -13,22 +13,9 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Configuration
 public class TaskSessionMap {
-
-    @Bean
-    public Map<TaskType, Map> taskMap() {
-        ConcurrentHashMap map = new ConcurrentHashMap<TaskType, Map>();
-        map.put(TaskType.UPBIT_TICK, new ConcurrentHashMap<SocketClientIndicator, WebSocketSession>());
-        map.put(TaskType.UPBIT_ORDERBOOK, new ConcurrentHashMap<SocketClientIndicator, WebSocketSession>());
-        map.put(TaskType.BITHUMB_TICK, new ConcurrentHashMap<SocketClientIndicator, WebSocketSession>());
-        map.put(TaskType.BITHUMB_ORDERBOOK, new ConcurrentHashMap<SocketClientIndicator, WebSocketSession>());
-        return map;
-    }
-
-
     @Bean
     public Map<TaskType, AbstractUpbitSocketClient> taskSocketMap() {
         ConcurrentHashMap map = new ConcurrentHashMap<TaskType, AbstractUpbitSocketClient>();
-
         return map;
     }
 }

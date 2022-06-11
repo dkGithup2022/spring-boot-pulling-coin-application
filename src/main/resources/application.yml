@@ -38,14 +38,14 @@ property:
   upbitCron:
     tick:
       doubleCheck:
-        cronCommand: 00 */15 * * * *
-        period: 15
+        cronCommand: 00 */10 * * * *
+        period: 10
       restartSessions:
-        cronCommand : 00 02 00 * * *
+        cronCommand : 00 */22 * * * *
 
     orderbook:
       restartSessions:
-        cronCommand: 00 10 00 */5 * *
+        cronCommand: 00 */23 * * * *
 
 
 

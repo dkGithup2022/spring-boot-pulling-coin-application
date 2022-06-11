@@ -20,35 +20,44 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
 public abstract class AbstractUpbitSocketClient implements SocketClientOnFailSubscriber, SocketClient {
 
     protected final UpbitRestRequestService upbitRestRequestService;
     protected final URI uri;
-    protected final Map<SocketClientIndicator, WebSocketSession> sessionMap;
     protected final WebSocketClientPublisherHandler socketHandler;
     protected final TaskType taskType;
     protected final VendorType vendorType;
     protected final List<UpbitCoinCode> codes;
+    protected Map<SocketClientIndicator, WebSocketSession> sessionMap;
 
 
-    public AbstractUpbitSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, Map<SocketClientIndicator, WebSocketSession> sessionMap, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes) {
+    public AbstractUpbitSocketClient(
+            UpbitRestRequestService upbitRestRequestService,
+            URI uri,
+            WebSocketClientPublisherHandler socketHandler,
+            TaskType taskType,
+            VendorType vendorType,
+            List<UpbitCoinCode> codes) {
         this.upbitRestRequestService = upbitRestRequestService;
         this.uri = uri;
-        this.sessionMap = sessionMap;
         this.socketHandler = socketHandler;
         this.taskType = taskType;
         this.vendorType = vendorType;
         this.codes = codes;
+        this.sessionMap = new ConcurrentHashMap<SocketClientIndicator, WebSocketSession>();
     }
 
     public TaskType getTaskType() {
         return taskType;
     }
-    public Map<SocketClientIndicator, WebSocketSession> getSessionMap(){
+
+    public Map<SocketClientIndicator, WebSocketSession> getSessionMap() {
         return sessionMap;
     }
+
 
     @Override
     public void runSocketClientListener() {
@@ -57,7 +66,7 @@ public abstract class AbstractUpbitSocketClient implements SocketClientOnFailSub
         setCallbackAndRegisterSessionMap(listenableFuture);
     }
 
-    private void registerSubscriber(){
+    private void registerSubscriber() {
         this.socketHandler.setSubscriber(this);
     }
 

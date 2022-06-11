@@ -17,6 +17,8 @@ import org.springframework.web.socket.WebSocketSession;
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 @Setter(AccessLevel.PRIVATE)
 @Slf4j
@@ -24,12 +26,12 @@ public class UpbitOrderbookSocketClient extends AbstractUpbitSocketClient {
 
     UpbitOrderBookService orderBookService;
 
-    public UpbitOrderbookSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, Map<SocketClientIndicator, WebSocketSession> sessionMap, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes) {
-        super(upbitRestRequestService, uri, sessionMap, socketHandler, taskType, vendorType, codes);
+    public UpbitOrderbookSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri,  WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes) {
+        super(upbitRestRequestService, uri,  socketHandler, taskType, vendorType, codes);
     }
 
-    public UpbitOrderbookSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, Map<SocketClientIndicator, WebSocketSession> sessionMap, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes, UpbitOrderBookService orderBookService) {
-        super(upbitRestRequestService, uri, sessionMap, socketHandler, taskType, vendorType, codes);
+    public UpbitOrderbookSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri,   WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes, UpbitOrderBookService orderBookService) {
+        super(upbitRestRequestService, uri,  socketHandler, taskType, vendorType, codes);
         this.setOrderBookService(orderBookService);
     }
 

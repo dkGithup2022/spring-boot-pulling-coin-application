@@ -9,17 +9,14 @@ import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
-import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
 import com.example.pullingcoinapplication.socket.handler.WebSocketClientPublisherHandler;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.AccessLevel;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.socket.WebSocketSession;
 
 import java.net.URI;
 import java.util.List;
-import java.util.Map;
 
 
 @Setter(AccessLevel.PRIVATE)
@@ -28,16 +25,15 @@ public class UpbitTickSocketClient extends AbstractUpbitSocketClient {
 
     private UpbitTickService tickService;
 
-    public UpbitTickSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, Map<SocketClientIndicator, WebSocketSession> sessionMap, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes) {
-        super(upbitRestRequestService, uri, sessionMap, socketHandler, taskType, vendorType, codes);
+    public UpbitTickSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes) {
+        super(upbitRestRequestService, uri, socketHandler, taskType, vendorType, codes);
     }
 
-    public UpbitTickSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, Map<SocketClientIndicator, WebSocketSession> sessionMap, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes, UpbitTickService tickService) {
-        super(upbitRestRequestService, uri, sessionMap, socketHandler, taskType, vendorType, codes);
+    public UpbitTickSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes, UpbitTickService tickService) {
+        super(upbitRestRequestService, uri, socketHandler, taskType, vendorType, codes);
         this.setTickService(tickService);
+
     }
-
-
 
 
     @Override
@@ -79,7 +75,6 @@ public class UpbitTickSocketClient extends AbstractUpbitSocketClient {
         Thread.sleep(100);
         List<UpbitTick> ticks = upbitRestRequestService.getLastestTicks(code);
         log.info("call rest api / codes : {}", codes);
-        log.info("ticks: {}", ticks);
         for (UpbitTick tick : ticks) {
             tick = UpbitTickFactory.of(tick);
             tickService.saveWhenNotExist(tick);

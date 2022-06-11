@@ -29,10 +29,9 @@ public class UpbitTicksPeriodicRecheck {
     @Value("${property.upbitCron.tick.doubleCheck.period}")
     private int checkPeriod;
 
-
     @Scheduled(cron = "${property.upbitCron.tick.doubleCheck.cronCommand}")
     public void stuffUpMissingTicks() throws JsonProcessingException, InterruptedException {
-        log.info("stuff up every {} min",checkPeriod);
+        log.info("stuff up every {} min", checkPeriod);
         for (UpbitCoinCode code : UpbitCodeUtil.getAllCoinCodes()) {
             log.info(" {},{} | start rechecking  : ", System.currentTimeMillis(), code.toString());
             Long to = System.currentTimeMillis();
