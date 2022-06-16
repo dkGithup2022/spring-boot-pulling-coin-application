@@ -2,10 +2,12 @@ package com.example.pullingcoinapplication.task;
 
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
+import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
 import com.example.pullingcoinapplication.util.UpbitCodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
@@ -25,35 +27,53 @@ import java.util.stream.Collectors;
 public class UpbitTicksPeriodicRecheck {
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitTickService upbitTickService;
+    private final Map<TaskType, AbstractUpbitSocketClient> taskSocketMap;
 
     @Value("${property.upbitCron.tick.doubleCheck.period}")
     private int checkPeriod;
 
+
+    // TODO : 이거 태스크 맵에서 리스트 가져오게 수정 .
     @Scheduled(cron = "${property.upbitCron.tick.doubleCheck.cronCommand}")
     public void stuffUpMissingTicks() throws JsonProcessingException, InterruptedException {
         log.info("stuff up every {} min", checkPeriod);
-        for (UpbitCoinCode code : UpbitCodeUtil.getAllCoinCodes()) {
+        for (UpbitCoinCode code : taskSocketMap.get(TaskType.UPBIT_TICK).getCodes()) {
             log.info(" {},{} | start rechecking  : ", System.currentTimeMillis(), code.toString());
             Long to = System.currentTimeMillis();
             Long from = to - 1000 * 60 * checkPeriod;
 
+
+            //(1)
             List<UpbitTick> ticksFromDb =
                     upbitTickService.findByTimestampBetweenOrderByTimestampDesc(code, from, to);
 
             List<UpbitTick> ticksFromRestApi = upbitRestRequestService.getTicksBetweenTimeStampFromRest(code, from, to);
             log.info("{} | try unsaved ticks on database  | call rest apis", code.toString());
 
-            Set<Long> missingTicks = pickOutMissingTickIds(ticksFromDb, ticksFromRestApi);
+            // (1) 까진 문제 없음
 
+           //(2)
+            System.out.println("step 2");
+            Set<Long> missingTicks = pickOutMissingTickIds(ticksFromDb, ticksFromRestApi);
             log.info("try save missing ticks ... : {}", code);
+           //(3)
+            System.out.println("step 3");
             List<UpbitTick> ticksToSave = ticksFromRestApi.stream()
                     .filter(t -> !missingTicks.contains(t))
                     .collect(Collectors.toList());
 
+            /*
             ticksToSave.stream()
                     .forEach(t -> upbitTickService.saveWhenNotExist(UpbitTickFactory.of(t)));
+             */
+            ticksToSave.stream()
+                    .forEach(t -> upbitTickService.save(UpbitTickFactory.of(t)));
+
         }
         log.info("done : UpbitRestTickStuffUp");
+
+
+
 
     }
 

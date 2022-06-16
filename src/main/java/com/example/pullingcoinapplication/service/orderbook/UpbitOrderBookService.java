@@ -18,14 +18,18 @@ public class UpbitOrderBookService {
     private final UpbitOrderbookRepository upbitOrderBookRepository;
 
     @Transactional
-    public void save(UpbitOrderbook upbitOrderbook) {
+    public void safeSave(UpbitOrderbook upbitOrderbook) {
         if ((this.findByPk(upbitOrderbook.getPk()) == null) ) {
             upbitOrderBookRepository.save(upbitOrderbook);
         }
         else {
             log.error("duplicated orderbook pk : {}",upbitOrderbook.getPk());
         }
+    }
 
+    @Transactional
+    public void save(UpbitOrderbook upbitOrderbook) {
+        upbitOrderBookRepository.save(upbitOrderbook);
     }
 
     public UpbitOrderbook findByPk(UpbitOrderbookPk upbitOrderbookPk) {

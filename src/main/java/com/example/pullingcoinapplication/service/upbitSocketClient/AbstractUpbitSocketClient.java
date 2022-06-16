@@ -54,6 +54,10 @@ public abstract class AbstractUpbitSocketClient implements SocketClientOnFailSub
         return taskType;
     }
 
+    public List<UpbitCoinCode> getCodes() {
+        return this.codes;
+    }
+
     public Map<SocketClientIndicator, WebSocketSession> getSessionMap() {
         return sessionMap;
     }

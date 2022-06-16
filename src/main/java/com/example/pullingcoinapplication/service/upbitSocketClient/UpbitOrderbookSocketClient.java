@@ -49,10 +49,8 @@ public class UpbitOrderbookSocketClient extends AbstractUpbitSocketClient {
         }
         log.info("{} notified : wakeup and try to reconnect ", key);
         try {
-            // TODO :  스트림으로
             for (SocketClientIndicator indicator : sessionMap.keySet()) {
                 if (indicator.getSessionId() == key) {
-                    UpbitCoinCode[] coins = indicator.getCoins();
                     log.error("try to close {} ", indicator.coinsToString());
                     sessionMap.get(indicator).close();
                     sessionMap.remove(indicator);
@@ -60,7 +58,6 @@ public class UpbitOrderbookSocketClient extends AbstractUpbitSocketClient {
                     runSocketClientListener();
                 }
             }
-            throw new Exception("no valid coin ");
         } catch (Exception e) {
             log.info("error during restart socket {}  | message", e.getMessage());
         }

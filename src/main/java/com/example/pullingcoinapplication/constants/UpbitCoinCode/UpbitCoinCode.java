@@ -6,6 +6,7 @@ import lombok.ToString;
 
 @AllArgsConstructor
 public enum UpbitCoinCode {
+
     KRW_BTC("KRW-BTC"),
     KRW_XRP("KRW-XRP"),
     KRW_ETH("KRW-ETH"),
