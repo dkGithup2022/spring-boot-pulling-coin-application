@@ -1,12 +1,10 @@
 package com.example.pullingcoinapplication.constants.UpbitCoinCode;
 
 import lombok.AllArgsConstructor;
-import lombok.ToString;
 
 
 @AllArgsConstructor
 public enum UpbitCoinCode {
-
     KRW_BTC("KRW-BTC"),
     KRW_XRP("KRW-XRP"),
     KRW_ETH("KRW-ETH"),
@@ -30,11 +28,7 @@ public enum UpbitCoinCode {
     KRW_MATIC("KRW-MATIC"),
     KRW_ENJ("KRW-ENJ"),
     KRW_CHZ("KRW-CHZ");
-/*
-            {"KRW-BTC", "KRW-XRP", "KRW-ETH", "KRW-STX", "KRW-SOL", "KRW-ADA", "KRW-DOT", "KRW-BCH", "KRW-BAT", "KRW-AVAX", "KRW-ETC",
-            "KRW-AXS", "KRW-PLA", "KRW-SAND", "KRW-SRM", "KRW-DOGE", "KRW-MANA", "KRW-FLOW", "KRW-BTG", "KRW-ATOM", "KRW-MATIC", "KRW-ENJ", "KRW-CHZ"};
 
- */
     @Override
     public String toString() {
         return getName();

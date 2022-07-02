@@ -34,3 +34,4 @@ build/
 
 ### git ignore ###
 /logs
+./DS_Store

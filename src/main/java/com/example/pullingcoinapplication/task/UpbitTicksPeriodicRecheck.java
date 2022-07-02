@@ -62,13 +62,13 @@ public class UpbitTicksPeriodicRecheck {
                     .filter(t -> !missingTicks.contains(t))
                     .collect(Collectors.toList());
 
-            /*
+
             ticksToSave.stream()
                     .forEach(t -> upbitTickService.saveWhenNotExist(UpbitTickFactory.of(t)));
-             */
+             /*
             ticksToSave.stream()
                     .forEach(t -> upbitTickService.save(UpbitTickFactory.of(t)));
-
+            */
         }
         log.info("done : UpbitRestTickStuffUp");
 

@@ -26,7 +26,6 @@ public class InitialTask implements ApplicationRunner {
         pullUpbitTicks();
         pullUptitOrderbook();
     }
-
     private void pullUpbitTicks() throws Exception {
         UpbitTickSocketClient upbitTickSocketClient = (UpbitTickSocketClient) upbitSocketClientBuilder
                 .setCoinCodes(Arrays.asList(UpbitCoinCode.values()))
@@ -34,9 +33,7 @@ public class InitialTask implements ApplicationRunner {
                 .setVendor(VendorType.UPBIT)
                 .initialize();
         upbitTickSocketClient.runSocketClientListener();
-
     }
-
 
     private void pullUptitOrderbook() throws Exception {
         UpbitOrderbookSocketClient upbitOrderbookSocketClient = (UpbitOrderbookSocketClient) upbitSocketClientBuilder
