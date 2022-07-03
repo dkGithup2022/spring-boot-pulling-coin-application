@@ -1,10 +1,14 @@
 package com.example.pullingcoinapplication.service.orderbook;
 
+import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.OrderBookUnit;
+import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderBookFactory;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
-import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbookPk;
+import com.example.pullingcoinapplication.repository.upbitOrderBookRepository.UpbitOrderbookKrwBtcRepository;
+import com.example.pullingcoinapplication.util.UpbitCodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +16,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -23,6 +26,7 @@ import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("test")
+@Slf4j
 class UpbitOrderBookServiceTest {
 
     @Autowired
@@ -36,51 +40,35 @@ class UpbitOrderBookServiceTest {
     @Test
     void empty(){}
 
-    /*
+
     @Test
     void save() throws JsonProcessingException {
         UpbitOrderbook upbitOrderbook = getNewOrderBook(10L,3);
         System.out.println(upbitOrderbook);
-        upbitOrderBookService.save(upbitOrderbook);
-
+        upbitOrderBookService.save(UpbitOrderBookFactory.of(upbitOrderbook));
         System.out.println(upbitOrderbook);
-
-        UpbitOrderbook upbitOrderbook2 = upbitOrderBookService.findByPk(upbitOrderbook.getPk());
-
-        assertEquals( upbitOrderbook, upbitOrderbook2);
+       // UpbitOrderbook upbitOrderbook2 = upbitOrderBookService.findByPk(upbitOrderbook.getPk());
+      //  assertEquals( upbitOrderbook, upbitOrderbook2);
     }
 
-    @Test
-    void saveDuplicate() throws JsonProcessingException {
-        UpbitOrderbook upbitOrderbook = getNewOrderBook(10L,3);
-        System.out.println(upbitOrderbook);
-        upbitOrderBookService.save(upbitOrderbook);
-        upbitOrderBookService.save(upbitOrderbook);
-        upbitOrderBookService.save(upbitOrderbook);
 
-        assertEquals(1,upbitOrderBookService.findAll().size());
-    }
 
     @Test
     void findByPk() throws JsonProcessingException {
         UpbitOrderbook upbitOrderbook = getNewOrderBook(10L,3);
-
-        upbitOrderBookService.save(upbitOrderbook);
-        UpbitOrderbook upbitOrderbook2 = upbitOrderBookService.findByPk(upbitOrderbook.getPk());
-
-        assertEquals( upbitOrderbook, upbitOrderbook2);
-
+        upbitOrderBookService.save(UpbitOrderBookFactory.of(upbitOrderbook));
+        UpbitOrderbook upbitOrderbook2 = upbitOrderBookService.findByCodeAndTimestamp(UpbitCoinCode.KRW_BTC,10L);
+        assertEquals(upbitOrderbook, upbitOrderbook2);
     }
 
     public UpbitOrderbook getNewOrderBook(Long timestamp, int count) throws JsonProcessingException {
-        Long tsTimestamp = timestamp;
-        String market = String.valueOf(tsTimestamp);
+        String market = String.valueOf(UpbitCoinCode.KRW_BTC);
         ArrayList<OrderBookUnit> units = new ArrayList<>();
 
         for(int i =0; i< count ; i++)
             units.add(getNewOrderBookUnit());
 
-        return new UpbitOrderbook(market,tsTimestamp,random.nextDouble(),random.nextDouble(),objectMapper.writeValueAsString(units));
+        return new UpbitOrderbook(market,timestamp,random.nextDouble(),random.nextDouble(),units);
 
     }
 
@@ -88,6 +76,6 @@ class UpbitOrderBookServiceTest {
         return new OrderBookUnit(random.nextDouble(),random.nextDouble(),random.nextDouble(), random.nextDouble());
     }
 
-     */
+
 
 }

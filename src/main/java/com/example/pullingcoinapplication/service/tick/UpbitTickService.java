@@ -2,8 +2,8 @@ package com.example.pullingcoinapplication.service.tick;
 
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickPk;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickPk;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
 import com.example.pullingcoinapplication.repository.upbitTickRepository.*;
@@ -74,7 +74,7 @@ class UpbitRespositoryPicker {
     private final UpbitTickKrwDogeRepository upbitTickKrwDogeRepository;
     private final UpbitTickKrwEnjRepository upbitTickKrwEnjRepository;
     private final UpbitTickKrwEthRepository upbitTickKrwEthRepository;
-    private final UpbitTickKewEtcRepository upbitTickKrwEtcRepository;
+    private final UpbitTickKrwEtcRepository upbitTickKrwEtcRepository;
     private final UpbitTickKrwFlowRepository upbitTickKrwFlowRepository;
     private final UpbitTickKrwManaRepository upbitTickKrwManaRepository;
     private final UpbitTickKrwMaticRepository upbitTickKrwMaticRepository;

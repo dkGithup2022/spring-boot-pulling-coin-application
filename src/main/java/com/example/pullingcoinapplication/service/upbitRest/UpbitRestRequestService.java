@@ -3,8 +3,9 @@ package com.example.pullingcoinapplication.service.upbitRest;
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
 import com.example.pullingcoinapplication.entity.upbit.CallType;
+import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandle;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -14,10 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -32,7 +31,7 @@ public class UpbitRestRequestService {
         RestTemplate restTemplate = new RestTemplate();
         String uri = Uri.UPBIT_REST_ORDERBOOK_URI.getAddress();
         uri += "?market=" + upbitCoinCode.toString();
-        System.out.println(uri);
+        log.info(" getLatestOrderBooks Uri : {}", uri);
         ResponseEntity<String> response
                 = restTemplate.getForEntity(uri, String.class);
         List<UpbitOrderbook> books = Arrays.asList(objectMapper.readValue(response.getBody(), UpbitOrderbook[].class));
@@ -46,7 +45,7 @@ public class UpbitRestRequestService {
         String uri = Uri.UPBIT_REST_TICK_URI.getAddress();
         uri += "?market=" + upbitCoinCode.toString();
         uri += "&count=100";
-        System.out.println(uri);
+        log.info ( "getLastestTicks() uri : {}", uri );
         ResponseEntity<String> response
                 = restTemplate.getForEntity(uri, String.class);
         List<UpbitTick> ticks = Arrays.asList(objectMapper.readValue(response.getBody(), UpbitTick[].class));
@@ -70,7 +69,7 @@ public class UpbitRestRequestService {
 
 
     public void pauseAfterRestRequest() throws InterruptedException {
-        Thread.sleep(200);
+        Thread.sleep(400);
     }
 
     public List<UpbitTick> getTicksBetweenTimeStampFromRest(UpbitCoinCode code, Long from, long to) throws InterruptedException {
@@ -111,6 +110,33 @@ public class UpbitRestRequestService {
             e.printStackTrace();
         }
         return restTicks;
+    }
+
+    public List<UpbitCandle> getMinutesCandles(UpbitCoinCode code, Long millis, int count ) throws JsonProcessingException, InterruptedException {
+        RestTemplate restTemplate = new RestTemplate();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:00");
+        String baseUrl = Uri.UPBIT_REST_CANDLE_MINUTES_URI.getAddress();
+        String marketParam = "?market="+ code.toString();
+        String to = "&to="+ sdf.format(new Date(millis));
+        String suffix = "&count=10";
+        String url = baseUrl+marketParam+to+suffix;
+        log.info("getLastMinutesCandles () :  url : {}" , url);
+
+        try {
+            ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+            List<UpbitCandle> candles = Arrays.asList(objectMapper.readValue(response.getBody(),UpbitCandle[].class));
+            return candles;
+        }catch(HttpClientErrorException clientErrorException){
+            if (clientErrorException.getRawStatusCode() == 429) {
+                pauseAfterRestRequest();
+                return getMinutesCandles(code,millis,count);
+            }
+           log.error("getMinutesCandles | code: {} , millis : {}, count ; {}", code, millis, count);
+            // todo : throw new custom error   & 아래 리턴 지우기.
+        }
+
+        return new ArrayList<UpbitCandle>();
+
     }
 
 }

@@ -1,9 +1,9 @@
 package com.example.pullingcoinapplication.service;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickPk;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickPk;
 import com.example.pullingcoinapplication.repository.upbitTickRepository.UpbitTickKrwDotRepository;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
@@ -13,6 +13,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -21,6 +22,7 @@ import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@ActiveProfiles("test")
 public class UpbitTickServiceTest {
 
     @Autowired

@@ -16,18 +16,17 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
-@Entity(name = "upbit_orderbook")
-@IdClass(UpbitOrderbookPk.class)
 @AllArgsConstructor
 @NoArgsConstructor
+@MappedSuperclass
 @TypeDef(name = "json", typeClass = JsonType.class)
 public class UpbitOrderbook implements Serializable {
 
-    @Id
+
     @NotNull
     @JsonProperty("market")
     @JsonAlias("code")
-    private String market;
+    private String code;
 
     @Id
     @NotNull
@@ -56,7 +55,4 @@ public class UpbitOrderbook implements Serializable {
     }
      */
 
-    public UpbitOrderbookPk getPk() {
-        return new UpbitOrderbookPk(market, timestamp);
-    }
 }

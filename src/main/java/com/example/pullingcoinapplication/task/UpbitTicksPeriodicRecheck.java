@@ -3,12 +3,11 @@ package com.example.pullingcoinapplication.task;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
 import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
-import com.example.pullingcoinapplication.util.UpbitCodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -42,22 +41,15 @@ public class UpbitTicksPeriodicRecheck {
             Long to = System.currentTimeMillis();
             Long from = to - 1000 * 60 * checkPeriod;
 
-
             //(1)
             List<UpbitTick> ticksFromDb =
                     upbitTickService.findByTimestampBetweenOrderByTimestampDesc(code, from, to);
 
             List<UpbitTick> ticksFromRestApi = upbitRestRequestService.getTicksBetweenTimeStampFromRest(code, from, to);
             log.info("{} | try unsaved ticks on database  | call rest apis", code.toString());
-
-            // (1) 까진 문제 없음
-
-           //(2)
-            System.out.println("step 2");
             Set<Long> missingTicks = pickOutMissingTickIds(ticksFromDb, ticksFromRestApi);
             log.info("try save missing ticks ... : {}", code);
-           //(3)
-            System.out.println("step 3");
+
             List<UpbitTick> ticksToSave = ticksFromRestApi.stream()
                     .filter(t -> !missingTicks.contains(t))
                     .collect(Collectors.toList());
@@ -65,10 +57,7 @@ public class UpbitTicksPeriodicRecheck {
 
             ticksToSave.stream()
                     .forEach(t -> upbitTickService.saveWhenNotExist(UpbitTickFactory.of(t)));
-             /*
-            ticksToSave.stream()
-                    .forEach(t -> upbitTickService.save(UpbitTickFactory.of(t)));
-            */
+
         }
         log.info("done : UpbitRestTickStuffUp");
 
