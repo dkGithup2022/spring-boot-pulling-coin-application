@@ -1,9 +1,9 @@
 package com.example.pullingcoinapplication.service;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickPk;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickPk;
 import com.example.pullingcoinapplication.repository.upbitTickRepository.UpbitTickKrwDotRepository;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;

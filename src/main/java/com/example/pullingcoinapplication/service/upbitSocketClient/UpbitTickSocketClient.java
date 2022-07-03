@@ -5,8 +5,8 @@ import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
 import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
 import com.example.pullingcoinapplication.socket.handler.WebSocketClientPublisherHandler;
@@ -32,7 +32,6 @@ public class UpbitTickSocketClient extends AbstractUpbitSocketClient {
     public UpbitTickSocketClient(UpbitRestRequestService upbitRestRequestService, URI uri, WebSocketClientPublisherHandler socketHandler, TaskType taskType, VendorType vendorType, List<UpbitCoinCode> codes, UpbitTickService tickService) {
         super(upbitRestRequestService, uri, socketHandler, taskType, vendorType, codes);
         this.setTickService(tickService);
-
     }
 
 

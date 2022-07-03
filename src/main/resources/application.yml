@@ -39,7 +39,7 @@ property:
     tick:
       doubleCheck:
         cronCommand: 00 */5 * * * *
-        period: 10
+        period: 5
       restartSessions:
         cronCommand : 00 */8 * * * *
 

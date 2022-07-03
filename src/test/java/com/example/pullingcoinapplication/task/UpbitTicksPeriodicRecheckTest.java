@@ -1,7 +1,7 @@
 package com.example.pullingcoinapplication.task;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
 import com.fasterxml.jackson.core.JsonProcessingException;

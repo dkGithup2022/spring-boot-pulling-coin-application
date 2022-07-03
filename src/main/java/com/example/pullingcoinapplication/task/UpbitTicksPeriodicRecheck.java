@@ -3,12 +3,11 @@ package com.example.pullingcoinapplication.task;
 
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTickFactory;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
 import com.example.pullingcoinapplication.service.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
 import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
-import com.example.pullingcoinapplication.util.UpbitCodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

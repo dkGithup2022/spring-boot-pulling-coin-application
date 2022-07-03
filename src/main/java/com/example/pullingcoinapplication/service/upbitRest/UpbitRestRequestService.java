@@ -4,7 +4,7 @@ import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.Uri;
 import com.example.pullingcoinapplication.entity.upbit.CallType;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
-import com.example.pullingcoinapplication.entity.upbit.upbitTick.UpbitTick;
+import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
