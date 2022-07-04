@@ -4,9 +4,13 @@ package com.example.pullingcoinapplication.task;
 import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
+import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandle;
+import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandleFactory;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderBookFactory;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
+import com.example.pullingcoinapplication.service.candle.UpbitCandleService;
 import com.example.pullingcoinapplication.service.orderbook.UpbitOrderBookService;
+import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
 import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitOrderbookSocketClient;
 import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitSocketClientBuilderImpl;
 import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitTickSocketClient;
@@ -17,6 +21,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
 
 @Component
 @RequiredArgsConstructor
@@ -24,8 +29,8 @@ import java.util.Arrays;
 public class InitialTask implements ApplicationRunner {
     private final UpbitSocketClientBuilderImpl upbitSocketClientBuilder;
 
-    private final UpbitOrderBookService upbitOrderBookService;
-
+    private final UpbitRestRequestService upbitRestRequestService;
+    private final UpbitCandleService upbitCandleService;
     @Override
     public void run(ApplicationArguments args) throws Exception {
         pullUpbitTicks();

@@ -31,7 +31,7 @@ spring:
       enabled: true
 
   jpa:
-    show-sql: false
+    show-sql: true
     generate-ddl: true
 
 property:
@@ -46,6 +46,10 @@ property:
     orderbook:
       restartSessions:
         cronCommand: 00 */23 * * * *
+
+    candle:
+      period:
+        cronCommand: 00 */2 * * * *
 
 logging:
   level:
@@ -68,7 +72,7 @@ spring:
     password: postgres1
 
   jpa:
-    show-sql: false
+    show-sql: true
     generate-ddl: true
     hibernate:
       ddl-auto: update
@@ -86,6 +90,9 @@ property:
       restartSessions:
         cronCommand: 00 10 00 */5 * *
 
+    candle:
+      period:
+        cronCommand: 00 */3 * * * *
 
 ---
 #dev 환경
@@ -120,6 +127,10 @@ property:
 
     orderbook:
       restartSessions:
+        cronCommand: 00 */3 * * * *
+
+    candle:
+      period:
         cronCommand: 00 */23 * * * *
 
 logging:

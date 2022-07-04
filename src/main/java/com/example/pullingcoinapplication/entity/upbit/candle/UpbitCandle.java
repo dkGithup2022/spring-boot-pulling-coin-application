@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import java.io.Serializable;
 @Data
 @MappedSuperclass
 @ToString
+@NoArgsConstructor
 public class UpbitCandle implements Serializable {
 
     @Id
