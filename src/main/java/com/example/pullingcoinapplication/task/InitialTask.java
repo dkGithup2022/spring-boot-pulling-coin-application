@@ -1,19 +1,15 @@
 package com.example.pullingcoinapplication.task;
 
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.bithumbCoinCode.BithumbCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
-import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandle;
-import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandleFactory;
-import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderBookFactory;
-import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
-import com.example.pullingcoinapplication.service.candle.UpbitCandleService;
-import com.example.pullingcoinapplication.service.orderbook.UpbitOrderBookService;
-import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitOrderbookSocketClient;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitSocketClientBuilderImpl;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitTickSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.bithumb.BithumbOrderbookSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.bithumb.BithumbTickSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.upbit.UpbitOrderbookSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.SocketClientBuilderImpl;
+import com.example.pullingcoinapplication.socket.socketClient.upbit.UpbitTickSocketClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
@@ -21,19 +17,19 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
-import java.util.List;
 
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class InitialTask implements ApplicationRunner {
-    private final UpbitSocketClientBuilderImpl upbitSocketClientBuilder;
+    private final SocketClientBuilderImpl upbitSocketClientBuilder;
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
         pullUpbitTicks();
         pullUptitOrderbook();
-
+        pullBithumbTicks();
+        pullBithumbOrderbooks();
     }
     private void pullUpbitTicks() throws Exception {
         UpbitTickSocketClient upbitTickSocketClient = (UpbitTickSocketClient) upbitSocketClientBuilder
@@ -52,5 +48,23 @@ public class InitialTask implements ApplicationRunner {
                 .initialize();
         upbitOrderbookSocketClient.runSocketClientListener();
     }
+
+    private void pullBithumbTicks() throws Exception {
+        BithumbTickSocketClient bithumbTickSocketClient = (BithumbTickSocketClient) upbitSocketClientBuilder
+                .setCoinCodes(Arrays.asList(BithumbCoinCode.values()))
+                .setType(TaskType.BITHUMB_TICK)
+                .setVendor(VendorType.BITHUMB)
+                .initialize();
+        bithumbTickSocketClient.runSocketClientListener();
+    }
+    private void pullBithumbOrderbooks() throws Exception {
+        BithumbOrderbookSocketClient bithumbOrderbookSocketClient = (BithumbOrderbookSocketClient) upbitSocketClientBuilder
+                .setCoinCodes(Arrays.asList(BithumbCoinCode.values()))
+                .setType(TaskType.BITHUMB_ORDERBOOK)
+                .setVendor(VendorType.BITHUMB)
+                .initialize();
+        bithumbOrderbookSocketClient.runSocketClientListener();
+    }
+
 }
 

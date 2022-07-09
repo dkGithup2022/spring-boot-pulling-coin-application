@@ -1,11 +1,10 @@
 package com.example.pullingcoinapplication.service.orderbook;
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.OrderBookUnit;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderBookFactory;
 import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
-import com.example.pullingcoinapplication.repository.upbitOrderBookRepository.UpbitOrderbookKrwBtcRepository;
-import com.example.pullingcoinapplication.util.UpbitCodeUtil;
+import com.example.pullingcoinapplication.service.upbit.orderbook.UpbitOrderBookService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package com.example.pullingcoinapplication.entity.upbit.tick;
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.tick.coins.UpbitTickKrwDot;
 import com.example.pullingcoinapplication.entity.upbit.tick.coins.UpbitTickKrwSol;
 import com.example.pullingcoinapplication.entity.upbit.tick.coins.UpbitTickKrwStx;

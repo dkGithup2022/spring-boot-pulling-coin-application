@@ -1,13 +1,13 @@
 package com.example.pullingcoinapplication.service;
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickPk;
-import com.example.pullingcoinapplication.repository.upbitTickRepository.UpbitTickKrwDotRepository;
-import com.example.pullingcoinapplication.service.tick.UpbitTickService;
-import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
-import com.example.pullingcoinapplication.util.UpbitCodeUtil;
+import com.example.pullingcoinapplication.repository.upbit.upbitTickRepository.UpbitTickKrwDotRepository;
+import com.example.pullingcoinapplication.service.upbit.tick.UpbitTickService;
+import com.example.pullingcoinapplication.service.restCall.upbitRest.UpbitRestRequestService;
+import com.example.pullingcoinapplication.util.CodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +35,7 @@ public class UpbitTickServiceTest {
     UpbitTickFactory upbitTickFactory;
 
     @Autowired
-    UpbitCodeUtil upbitCodeUtil;
+    CodeUtil codeUtil;
 
     @Autowired
     UpbitTickKrwDotRepository upbitTickKrwDotRepository;
@@ -48,7 +48,7 @@ public class UpbitTickServiceTest {
 
         upbitTickService.save(upbitTickFactory.of(
                 tick,
-                upbitCodeUtil.getCoinCodeFromString(tick.getCode())
+                codeUtil.getCoinCodeFromString(tick.getCode())
                 )
         );
 

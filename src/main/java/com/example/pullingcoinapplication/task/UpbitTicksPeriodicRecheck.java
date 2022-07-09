@@ -1,13 +1,14 @@
 package com.example.pullingcoinapplication.task;
 
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.CoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
-import com.example.pullingcoinapplication.service.tick.UpbitTickService;
-import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
-import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
+import com.example.pullingcoinapplication.service.upbit.tick.UpbitTickService;
+import com.example.pullingcoinapplication.service.restCall.upbitRest.UpbitRestRequestService;
+import com.example.pullingcoinapplication.socket.socketClient.AbstractSocketClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -26,9 +27,9 @@ import java.util.stream.Collectors;
 public class UpbitTicksPeriodicRecheck {
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitTickService upbitTickService;
-    private final Map<TaskType, AbstractUpbitSocketClient> taskSocketMap;
+    private final Map<TaskType, AbstractSocketClient> taskSocketMap;
 
-    @Value("${property.upbitCron.tick.doubleCheck.period}")
+    //@Value("${property.upbitCron.tick.doubleCheck.period}")
     private int checkPeriod;
 
 
@@ -36,16 +37,17 @@ public class UpbitTicksPeriodicRecheck {
     @Scheduled(cron = "${property.upbitCron.tick.doubleCheck.cronCommand}")
     public void stuffUpMissingTicks() throws JsonProcessingException, InterruptedException {
         log.info("stuff up every {} min", checkPeriod);
-        for (UpbitCoinCode code : taskSocketMap.get(TaskType.UPBIT_TICK).getCodes()) {
+        for (CoinCode code : taskSocketMap.get(TaskType.UPBIT_TICK).getCodes()) {
+            UpbitCoinCode upbitCoinCode = (UpbitCoinCode) code;
             log.info(" {},{} | start rechecking  : ", System.currentTimeMillis(), code.toString());
             Long to = System.currentTimeMillis();
             Long from = to - 1000 * 60 * checkPeriod;
 
             //(1)
             List<UpbitTick> ticksFromDb =
-                    upbitTickService.findByTimestampBetweenOrderByTimestampDesc(code, from, to);
+                    upbitTickService.findByTimestampBetweenOrderByTimestampDesc(upbitCoinCode, from, to);
 
-            List<UpbitTick> ticksFromRestApi = upbitRestRequestService.getTicksBetweenTimeStampFromRest(code, from, to);
+            List<UpbitTick> ticksFromRestApi = upbitRestRequestService.getTicksBetweenTimeStampFromRest(upbitCoinCode, from, to);
             log.info("{} | try unsaved ticks on database  | call rest apis", code.toString());
             Set<Long> missingTicks = pickOutMissingTickIds(ticksFromDb, ticksFromRestApi);
             log.info("try save missing ticks ... : {}", code);
@@ -53,17 +55,10 @@ public class UpbitTicksPeriodicRecheck {
             List<UpbitTick> ticksToSave = ticksFromRestApi.stream()
                     .filter(t -> !missingTicks.contains(t))
                     .collect(Collectors.toList());
-
-
             ticksToSave.stream()
                     .forEach(t -> upbitTickService.saveWhenNotExist(UpbitTickFactory.of(t)));
-
         }
         log.info("done : UpbitRestTickStuffUp");
-
-
-
-
     }
 
 

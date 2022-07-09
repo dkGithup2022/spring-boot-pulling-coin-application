@@ -1,8 +1,9 @@
 package com.example.pullingcoinapplication.service.candle;
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandle;
 import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandleFactory;
+import com.example.pullingcoinapplication.service.upbit.candle.UpbitCandleService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,10 +1,10 @@
 package com.example.pullingcoinapplication.entity.upbit.tick;
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.tick.coins.*;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
-import com.example.pullingcoinapplication.util.UpbitCodeUtil;
+import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -12,10 +12,8 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class UpbitTickFactory {
-
     //TODO : 빈 객체의  model Mapper 가져오기
     private final static ModelMapper modelMapper = new ModelMapper();
-
 
     //TODO : 데이터를 Upbit 실체 객체를 통하지 않고 바로 실제 코인 객체로 만드는게 가능한지 확인.
     public static UpbitTick of(UpbitTick upbitTick, UpbitCoinCode upbitCoinCode){
@@ -32,7 +30,7 @@ public class UpbitTickFactory {
     }
 
     public static UpbitTick of(UpbitTick upbitTick){
-        UpbitCoinCode upbitCoinCode = UpbitCodeUtil.getCoinCodeFromString( upbitTick.getCode());
+        UpbitCoinCode upbitCoinCode = CodeUtil.getCoinCodeFromString( upbitTick.getCode());
         switch (upbitCoinCode){
 
             case KRW_ADA:

@@ -3,9 +3,9 @@ package com.example.pullingcoinapplication.task;
 
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
-import com.example.pullingcoinapplication.service.upbitSocketClient.AbstractUpbitSocketClient;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitOrderbookSocketClient;
-import com.example.pullingcoinapplication.service.upbitSocketClient.UpbitTickSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.AbstractSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.upbit.UpbitOrderbookSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.upbit.UpbitTickSocketClient;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ import java.util.Map;
 public class UpbitSocketClientRestartCronJob {
 
     @Autowired
-    Map<TaskType, AbstractUpbitSocketClient> taskMap;
+    Map<TaskType, AbstractSocketClient> taskMap;
 
     @Scheduled(cron = "${property.upbitCron.tick.restartSessions.cronCommand}")
     public void resetAllUpbitTickClient() throws IOException, Exception {
@@ -54,6 +54,7 @@ public class UpbitSocketClientRestartCronJob {
         for (SocketClientIndicator key : sessionMap.keySet()) {
             sessionMap.get(key).close();
         }
+
         sessionMap.clear();
         log.info("restart all client sessions ");
 
@@ -66,7 +67,7 @@ public class UpbitSocketClientRestartCronJob {
 
     private void listAllSessionsInTask() {
         for (TaskType taskType : taskMap.keySet()) {
-            AbstractUpbitSocketClient socketClient = taskMap.get(taskType);
+            AbstractSocketClient socketClient = taskMap.get(taskType);
             log.info("taskType: {}  | sessionMap : {}", taskType.getName(), socketClient.getSessionMap().toString());
         }
     }

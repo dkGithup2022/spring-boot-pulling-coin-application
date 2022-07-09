@@ -1,9 +1,9 @@
 package com.example.pullingcoinapplication.task;
 
-import com.example.pullingcoinapplication.constants.UpbitCoinCode.UpbitCoinCode;
+import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
-import com.example.pullingcoinapplication.service.tick.UpbitTickService;
-import com.example.pullingcoinapplication.service.upbitRest.UpbitRestRequestService;
+import com.example.pullingcoinapplication.service.upbit.tick.UpbitTickService;
+import com.example.pullingcoinapplication.service.restCall.upbitRest.UpbitRestRequestService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
