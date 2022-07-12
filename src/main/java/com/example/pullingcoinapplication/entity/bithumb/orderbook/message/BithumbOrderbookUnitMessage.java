@@ -15,7 +15,7 @@ public class BithumbOrderbookUnitMessage {
     private String orderType;
 
     @JsonProperty("price")
-    private String price;
+    private Double price;
 
     @JsonProperty("quantity")
     private Double quantity;

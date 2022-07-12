@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum SocketReqType {
-    TRADE("trade"),TICKER("ticker"),ORDERBOOL("orderbook");
+public enum ReqType {
+    TRADE("trade"), TICKER("ticker"), ORDERBOOL("orderbook"), REST("rest");
     private String type;
 }

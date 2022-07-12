@@ -29,7 +29,7 @@ public class DoublecheckUpbitTicks {
     private final UpbitTickService upbitTickService;
     private final Map<TaskType, AbstractSocketClient> taskSocketMap;
 
-    //@Value("${property.upbitCron.tick.doubleCheck.period}")
+    @Value("${property.upbitCron.tick.doubleCheck.period}")
     private int checkPeriod;
 
 
@@ -41,7 +41,8 @@ public class DoublecheckUpbitTicks {
             UpbitCoinCode upbitCoinCode = (UpbitCoinCode) code;
             log.info(" {},{} | start rechecking  : ", System.currentTimeMillis(), code.toString());
             Long to = System.currentTimeMillis();
-            Long from = to - 1000 * 60 * checkPeriod;
+            Long from = to - 1000 * 60 * (checkPeriod +2);
+
 
             //(1)
             List<UpbitTick> ticksFromDb =

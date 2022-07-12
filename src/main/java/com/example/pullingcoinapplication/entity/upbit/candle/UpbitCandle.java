@@ -1,16 +1,17 @@
 package com.example.pullingcoinapplication.entity.upbit.candle;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @Data
@@ -29,11 +30,13 @@ public class UpbitCandle implements Serializable {
     @JsonAlias({"code","market"})
     private String market;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonProperty("candle_date_time_utc")
-    private String candleDateTimeUtc;
+    private  Date candleDateTimeUtc;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonProperty("candle_date_time_kst")
-    private String candleDateTimeKst;
+    private Date candleDateTimeKst;
 
     @JsonProperty("opening_price")
     private Double openingPrice;
@@ -52,17 +55,5 @@ public class UpbitCandle implements Serializable {
 
     @JsonProperty("candle_acc_trade_volume")
     private Double candleAccTradeVolume;
-
-    @JsonProperty("prev_closing_price")
-    private Double prevClosingPrice;
-
-    @JsonProperty("change_price")
-    private Double changePrice;
-
-    @JsonProperty("change_rate")
-    private Double changeRate;
-
-    @JsonProperty("converted_trade_price")
-    private Double convertedTradePrice;
 
 }

@@ -6,6 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "bithumb_ocandle_krw_btc")
+@Table(name = "bithumb_candle_krw_btc")
 public class BithumbCandleKrwBtc extends BithumbCandle {
 }

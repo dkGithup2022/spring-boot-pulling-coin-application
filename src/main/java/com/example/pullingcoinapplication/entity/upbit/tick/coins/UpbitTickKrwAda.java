@@ -7,6 +7,6 @@ import javax.persistence.Table;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "upbit_table_krw_ada")
+@Table(name = "upbit_tick_krw_ada")
 public class UpbitTickKrwAda extends UpbitTick implements Serializable {
 }

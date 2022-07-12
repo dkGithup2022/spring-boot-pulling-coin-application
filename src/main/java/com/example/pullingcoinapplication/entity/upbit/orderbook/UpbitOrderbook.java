@@ -4,6 +4,7 @@ package com.example.pullingcoinapplication.entity.upbit.orderbook;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import com.vladmihalcea.hibernate.type.json.JsonType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,7 +20,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @MappedSuperclass
-@TypeDef(name = "json", typeClass = JsonType.class)
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class UpbitOrderbook implements Serializable {
 
 
@@ -40,19 +41,8 @@ public class UpbitOrderbook implements Serializable {
     private Double totalBidSize;
 
     @JsonProperty("orderbook_units")
-    @Type(type = "json")
-    @Column(columnDefinition = "json")
-    // TODO : 배포 전에 JSONB 형식으로 변경 ...  H2/postgres 동시에 JSON 으로 받을 수 있는 자료형 있나 확인.
+    @Type(type = "jsonb")
+    @Column(columnDefinition = "jsonb")
     private List<OrderBookUnit> orderBookUnits;
-
-    /*
-    public void setOrderBookUnits(ArrayList<OrderBookUnit> orderBookUnits) throws JsonProcessingException {
-        this.orderBookUnits = new ObjectMapper().writeValueAsString(orderBookUnits);
-    }
-
-    public void setOrderBookUnits(String orderBookUnits) {
-        this.orderBookUnits = orderBookUnits;
-    }
-     */
 
 }

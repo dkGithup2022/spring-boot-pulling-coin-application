@@ -2,13 +2,14 @@ package com.example.pullingcoinapplication.entity.upbit.tick;
 
 import com.example.pullingcoinapplication.entity.upbit.CallType;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import lombok.Data;
 
-import javax.persistence.Id;
-import javax.persistence.IdClass;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 
 
 @MappedSuperclass
@@ -57,11 +58,15 @@ public class UpbitTick {
 
     @JsonProperty("td")
     @JsonAlias({"trade_date","trade_date_utc"})
-    private String tradeDateUtc;
+    @Temporal(TemporalType.DATE)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date tradeDateUtc;
 
     @JsonProperty("ttm")
     @JsonAlias({"trade_time","trade_time_utc"})
-    private String tradeTimeUtc;
+    @Temporal(TemporalType.TIMESTAMP)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm:ss")
+    private Date tradeTimeUtc;
 
     @JsonProperty("ttms")
     @JsonAlias("trade_timestamp")

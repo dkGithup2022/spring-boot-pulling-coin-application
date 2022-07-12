@@ -3,7 +3,6 @@ package com.example.pullingcoinapplication.service.upbit.candle;
 import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.candle.UpbitCandle;
 import com.example.pullingcoinapplication.repository.upbit.upbitCandleRepository.*;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -24,7 +23,7 @@ public class UpbitCandleService {
     }
 
     public UpbitCandle safeSave(UpbitCandle candle) {
-        if (findOneByMarketAndTimestamp(CodeUtil.getCoinCodeFromString(candle.getMarket()), candle.getTimestamp()) == null) {
+        if (findOneByMarketAndTimestamp( UpbitCoinCode.fromString(candle.getMarket()), candle.getTimestamp()) == null) {
             return save(candle);
         } else {
             return null;
@@ -61,7 +60,7 @@ class CandleRepositoryPicker {
     private final UpbitCandleKrwXrpRepository upbitCandleKrwXrpRepository;
 
     public UpbitCandleCommonJpaInterface pickRepository(UpbitCandle candle) {
-        return getRepositoryFromCode(CodeUtil.getCoinCodeFromString(candle.getMarket()));
+        return getRepositoryFromCode(UpbitCoinCode.fromString(candle.getMarket()));
     }
 
     public UpbitCandleCommonJpaInterface pickRepository(UpbitCoinCode code) {
@@ -69,7 +68,7 @@ class CandleRepositoryPicker {
     }
 
     public UpbitCandleCommonJpaInterface pickRepository(String strCode) {
-        return getRepositoryFromCode(CodeUtil.getCoinCodeFromString(strCode));
+        return getRepositoryFromCode(UpbitCoinCode.fromString(strCode));
     }
 
     private UpbitCandleCommonJpaInterface getRepositoryFromCode(UpbitCoinCode code) {

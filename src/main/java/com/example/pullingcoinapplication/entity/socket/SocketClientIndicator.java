@@ -1,4 +1,4 @@
-package com.example.pullingcoinapplication.entity.upbit.socket;
+package com.example.pullingcoinapplication.entity.socket;
 
 import com.example.pullingcoinapplication.constants.coinCode.CoinCode;
 import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;

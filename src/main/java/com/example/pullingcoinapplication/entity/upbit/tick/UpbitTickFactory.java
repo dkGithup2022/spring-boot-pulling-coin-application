@@ -4,7 +4,6 @@ import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.Upbit
 import com.example.pullingcoinapplication.entity.upbit.tick.coins.*;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -30,7 +29,7 @@ public class UpbitTickFactory {
     }
 
     public static UpbitTick of(UpbitTick upbitTick){
-        UpbitCoinCode upbitCoinCode = CodeUtil.getCoinCodeFromString( upbitTick.getCode());
+        UpbitCoinCode upbitCoinCode =UpbitCoinCode.fromString( upbitTick.getCode());
         switch (upbitCoinCode){
 
             case KRW_ADA:

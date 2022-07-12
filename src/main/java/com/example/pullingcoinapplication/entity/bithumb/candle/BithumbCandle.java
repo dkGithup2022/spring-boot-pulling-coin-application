@@ -38,6 +38,4 @@ public class BithumbCandle {
     @Column(name = "trade_amount")
     private Double tradeAmount;
 
-
-
 }

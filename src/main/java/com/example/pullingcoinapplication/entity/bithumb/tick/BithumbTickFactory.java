@@ -4,7 +4,6 @@ import com.example.pullingcoinapplication.constants.coinCode.bithumbCoinCode.Bit
 import com.example.pullingcoinapplication.entity.bithumb.tick.coins.*;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

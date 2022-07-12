@@ -2,8 +2,10 @@ package com.example.pullingcoinapplication.task;
 
 
 import com.example.pullingcoinapplication.constants.task.TaskType;
-import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
+import com.example.pullingcoinapplication.entity.socket.SocketClientIndicator;
 import com.example.pullingcoinapplication.socket.socketClient.AbstractSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.bithumb.BithumbOrderbookSocketClient;
+import com.example.pullingcoinapplication.socket.socketClient.bithumb.BithumbTickSocketClient;
 import com.example.pullingcoinapplication.socket.socketClient.upbit.UpbitOrderbookSocketClient;
 import com.example.pullingcoinapplication.socket.socketClient.upbit.UpbitTickSocketClient;
 import lombok.RequiredArgsConstructor;
@@ -19,51 +21,49 @@ import java.util.Map;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class ResetUpbitSocketClient {
+public class ReconnectSocketClient {
 
     @Autowired
     Map<TaskType, AbstractSocketClient> taskMap;
 
     @Scheduled(cron = "${property.upbitCron.tick.restartSessions.cronCommand}")
-    public void resetAllUpbitTickClient() throws IOException, Exception {
-        listAllSessionsInTask();
-        UpbitTickSocketClient socketClient = (UpbitTickSocketClient) taskMap.get(TaskType.UPBIT_TICK);
-        Map<SocketClientIndicator, WebSocketSession> sessionMap = socketClient.getSessionMap();
-        log.info("clear all socket client sessions");
-
-        for (SocketClientIndicator key : sessionMap.keySet()) {
-            sessionMap.get(key).close();
-        }
-        sessionMap.clear();
-        log.info("restart all client sessions ");
-
-        socketClient.runSocketClientListenerSafe();
-        Thread.sleep(socketClient.getRequiredWaitTime());
-        socketClient.stuffGapBetweenRestart();
-        listAllSessionsInTask();
-        log.info(" resetAllUpbitTickClient | all sessions restarted ");
+    public void reconnectUpbitTickClient() throws IOException, Exception {
+        reconnectSocketClient(TaskType.UPBIT_TICK);
     }
 
     @Scheduled(cron = "${property.upbitCron.orderbook.restartSessions.cronCommand}")
-    public void resetAllUpbitOrderBookClient() throws IOException, Exception {
-        listAllSessionsInTask();
-        UpbitOrderbookSocketClient socketClient = (UpbitOrderbookSocketClient) taskMap.get(TaskType.UPBIT_ORDERBOOK);
-        Map<SocketClientIndicator, WebSocketSession> sessionMap = socketClient.getSessionMap();
-        log.info("clear all socket client sessions");
+    public void reconnectUpbitOrderBookClient() throws IOException, Exception {
+        reconnectSocketClient(TaskType.UPBIT_ORDERBOOK);
+    }
 
+    @Scheduled(cron = "${property.bithumbCron.tick.restartSessions.cronCommand}")
+    public void reconnectBithumbTickClient() throws IOException , Exception{
+        reconnectSocketClient(TaskType.BITHUMB_TICK);
+    }
+
+
+    @Scheduled(cron = "${property.bithumbCron.orderbook.restartSessions.cronCommand}")
+    public void reconnectBithumbOrderbookClient() throws IOException , Exception{
+        reconnectSocketClient(TaskType.BITHUMB_ORDERBOOK);
+    }
+
+
+
+    public void reconnectSocketClient(TaskType taskType) throws IOException, Exception {
+        AbstractSocketClient socketClient = taskMap.get(taskType);
+        Map<SocketClientIndicator, WebSocketSession> sessionMap = socketClient.getSessionMap();
         for (SocketClientIndicator key : sessionMap.keySet()) {
             sessionMap.get(key).close();
         }
-
         sessionMap.clear();
-        log.info("restart all client sessions ");
-
+        log.info("try to close {} ", taskType.getName() );
         socketClient.runSocketClientListenerSafe();
         Thread.sleep(socketClient.getRequiredWaitTime());
         listAllSessionsInTask();
-        log.info(" resetAllUpbitTickClient | all sessions restarted ");
-
+        log.info(" reconnectSocketClient | {} sessions restarted " , taskType.getName());
     }
+
+
 
     private void listAllSessionsInTask() {
         for (TaskType taskType : taskMap.keySet()) {

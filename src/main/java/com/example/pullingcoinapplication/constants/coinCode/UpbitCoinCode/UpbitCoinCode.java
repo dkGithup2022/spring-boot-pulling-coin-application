@@ -30,6 +30,14 @@ public enum UpbitCoinCode implements CoinCode {
     KRW_ENJ("KRW-ENJ"),
     KRW_CHZ("KRW-CHZ");
 
+    public static UpbitCoinCode fromString(String str){
+        for(UpbitCoinCode code :UpbitCoinCode.values()){
+            if(code.name.equals(str))
+                return code;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return getName();
