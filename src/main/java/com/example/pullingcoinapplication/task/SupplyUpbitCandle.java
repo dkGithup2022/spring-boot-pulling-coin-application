@@ -17,7 +17,7 @@ import java.util.List;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class UpbitCandleSupply {
+public class SupplyUpbitCandle {
 
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitCandleService upbitCandleService;

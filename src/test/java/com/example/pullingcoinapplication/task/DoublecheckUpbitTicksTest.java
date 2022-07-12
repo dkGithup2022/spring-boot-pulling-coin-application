@@ -19,10 +19,10 @@ import java.util.List;
 @SpringBootTest
 @ActiveProfiles("test")
 @Slf4j
-public class UpbitTicksPeriodicRecheckTest {
+public class DoublecheckUpbitTicksTest {
 
     @Autowired
-    UpbitTicksPeriodicRecheck upbitTicksPeriodicRecheck;
+    DoublecheckUpbitTicks doublecheckUpbitTicks;
 
     @Autowired
     UpbitTickService upbitTickService;

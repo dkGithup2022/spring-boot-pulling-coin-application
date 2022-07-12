@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class UpbitTicksPeriodicRecheck {
+public class DoublecheckUpbitTicks {
     private final UpbitRestRequestService upbitRestRequestService;
     private final UpbitTickService upbitTickService;
     private final Map<TaskType, AbstractSocketClient> taskSocketMap;

@@ -31,6 +31,7 @@ public class InitialTask implements ApplicationRunner {
         pullBithumbTicks();
         pullBithumbOrderbooks();
     }
+
     private void pullUpbitTicks() throws Exception {
         UpbitTickSocketClient upbitTickSocketClient = (UpbitTickSocketClient) upbitSocketClientBuilder
                 .setCoinCodes(Arrays.asList(UpbitCoinCode.values()))
@@ -57,6 +58,7 @@ public class InitialTask implements ApplicationRunner {
                 .initialize();
         bithumbTickSocketClient.runSocketClientListener();
     }
+
     private void pullBithumbOrderbooks() throws Exception {
         BithumbOrderbookSocketClient bithumbOrderbookSocketClient = (BithumbOrderbookSocketClient) upbitSocketClientBuilder
                 .setCoinCodes(Arrays.asList(BithumbCoinCode.values()))

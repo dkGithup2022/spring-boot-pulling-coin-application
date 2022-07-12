@@ -19,7 +19,7 @@ import java.util.Map;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class UpbitSocketClientRestartCronJob {
+public class ResetUpbitSocketClient {
 
     @Autowired
     Map<TaskType, AbstractSocketClient> taskMap;

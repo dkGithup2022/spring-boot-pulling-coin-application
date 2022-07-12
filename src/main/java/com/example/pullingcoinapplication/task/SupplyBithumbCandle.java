@@ -21,7 +21,7 @@ import java.util.List;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class BithumbCandleSupply {
+public class SupplyBithumbCandle {
 
     private final BithumbRestRequestService bithumbRestRequestService;
     private final BithumbCandleService bithumbCandleService;
@@ -35,7 +35,5 @@ public class BithumbCandleSupply {
             List<BithumbCandle> candles = bithumbRestRequestService.getLastestCandles(code);
             candles.stream().forEach(c -> bithumbCandleService.safeSave(BithumbCandleFactory.of(c)));
         }
-
     }
-
 }
