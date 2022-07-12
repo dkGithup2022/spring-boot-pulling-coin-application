@@ -26,9 +26,9 @@ public class InitialTask implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        pullUpbitTicks();
-        pullUptitOrderbook();
-        pullBithumbTicks();
+        //pullUpbitTicks();
+       // pullUptitOrderbook();
+        //pullBithumbTicks();
         pullBithumbOrderbooks();
     }
 

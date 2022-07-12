@@ -40,7 +40,7 @@ public class BithumbOrderbookServiceTest {
         list.add(unit1);
         list.add(unit2);
 
-        BithumbOrderbook bithumbOrderbook = new BithumbOrderbook(100L,"BTC_KRW");
+        BithumbOrderbook bithumbOrderbook = new BithumbOrderbook(100L,"BTC_KRW",list);
         BithumbOrderbook bob =  bithumbOrderbookService.save(BithumbOrderbookFactory.of(bithumbOrderbook));
 
         assertEquals(bob,bithumbOrderbook);
@@ -48,7 +48,7 @@ public class BithumbOrderbookServiceTest {
 
     @Test
     public void findOneByCodeAndDatetime(){
-        BithumbOrderbook bithumbOrderbook = new BithumbOrderbook(100L,"BTC_KRW");
+        BithumbOrderbook bithumbOrderbook = new BithumbOrderbook(100L,"BTC_KRW",null);
         BithumbOrderbook bob =  bithumbOrderbookService.save(BithumbOrderbookFactory.of(bithumbOrderbook));
 
         BithumbOrderbook found = bithumbOrderbookService.findOneByCodeAndDatetime(BithumbCoinCode.KRW_BTC,100L);

@@ -5,7 +5,6 @@ import com.example.pullingcoinapplication.entity.bithumb.tick.BithumbTick;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
 import com.example.pullingcoinapplication.repository.bithumb.bithumbTickRepository.*;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -33,9 +32,6 @@ public class BithumbTickService {
 @RequiredArgsConstructor
 @Slf4j
 class BithumbTickRespositoryPicker {
-
-    private final CodeUtil codeUtil;
-    // TODO : 뭔가 찜찜한 코드
 
     private final BithumbTickKrwDotRepository bithumbTickKrwDotRepository;
     private final BithumbTickKrwSolRepository bithumbTickKrwSolRepository;

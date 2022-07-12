@@ -6,7 +6,6 @@ import com.example.pullingcoinapplication.entity.upbit.orderbook.UpbitOrderbook;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
 import com.example.pullingcoinapplication.repository.upbit.upbitOrderBookRepository.*;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -64,11 +63,11 @@ class UpbitOrderbookRepositoryPicker {
     }
 
     UpbitOrderbookCommonRepository getRepository(UpbitOrderbook orderbook) {
-        return getRepository(CodeUtil.getCoinCodeFromString(orderbook.getCode()));
+        return getRepository(UpbitCoinCode.fromString(orderbook.getCode()));
     }
 
     UpbitOrderbookCommonRepository getRepository(String code) {
-        return getRepository(CodeUtil.getCoinCodeFromString(code));
+        return getRepository(UpbitCoinCode.fromString(code));
     }
 
 

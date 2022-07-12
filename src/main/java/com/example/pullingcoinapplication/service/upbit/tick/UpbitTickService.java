@@ -7,7 +7,6 @@ import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickPk;
 import com.example.pullingcoinapplication.exception.CoinDataException;
 import com.example.pullingcoinapplication.exception.CoinDataExceptionCode;
 import com.example.pullingcoinapplication.repository.upbit.upbitTickRepository.*;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
@@ -56,9 +55,6 @@ public class UpbitTickService {
 @Slf4j
 class UpbitRespositoryPicker {
 
-    private final CodeUtil codeUtil;
-    // TODO : 뭔가 찜찜한 코드
-
     private final UpbitTickKrwDotRepository upbitTickKrwDotRepository;
     private final UpbitTickKrwSolRepository upbitTickKrwSolRepository;
     private final UpbitTickKrwStxRepository upbitTickKrwStxRepository;
@@ -86,7 +82,7 @@ class UpbitRespositoryPicker {
 
 
     public UpbitCommonJpaInterface pickRepository(UpbitTick upbitTick) {
-        return getRepositoryFromCode(codeUtil.getCoinCodeFromString(upbitTick.getCode()));
+        return getRepositoryFromCode(UpbitCoinCode.fromString(upbitTick.getCode()));
     }
 
     public UpbitCommonJpaInterface pickRepository(UpbitCoinCode code) {
@@ -94,7 +90,7 @@ class UpbitRespositoryPicker {
     }
 
     public UpbitCommonJpaInterface pickRepository(String strCode) {
-        return getRepositoryFromCode(codeUtil.getCoinCodeFromString(strCode));
+        return getRepositoryFromCode(UpbitCoinCode.fromString(strCode));
     }
 
 

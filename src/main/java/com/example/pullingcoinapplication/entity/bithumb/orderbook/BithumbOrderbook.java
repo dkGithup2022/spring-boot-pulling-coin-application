@@ -3,14 +3,15 @@ package com.example.pullingcoinapplication.entity.bithumb.orderbook;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.MappedSuperclass;
 import java.util.List;
 
@@ -18,6 +19,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class BithumbOrderbook {
 
     @Id
@@ -29,11 +31,9 @@ public class BithumbOrderbook {
     @JsonAlias("symbol")
     @Column(name = "code")
     private String code;
-/*
-    @JsonProperty("orderbookUnit")
-    @Column(name = "orderbook_unit")
-    @Lob
-    private List<BithumbOrderbookUnit> orderbookUnits;
- */
 
+    @JsonProperty("orderbookUnit")
+    @Column(name = "orderbook_unit", columnDefinition = "jsonb")
+    @Type(type = "jsonb")
+    private List<BithumbOrderbookUnit> orderbookUnits;
 }

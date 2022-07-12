@@ -7,7 +7,6 @@ import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickPk;
 import com.example.pullingcoinapplication.repository.upbit.upbitTickRepository.UpbitTickKrwDotRepository;
 import com.example.pullingcoinapplication.service.upbit.tick.UpbitTickService;
 import com.example.pullingcoinapplication.service.restCall.upbitRest.UpbitRestRequestService;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,8 +33,7 @@ public class UpbitTickServiceTest {
     @Autowired
     UpbitTickFactory upbitTickFactory;
 
-    @Autowired
-    CodeUtil codeUtil;
+
 
     @Autowired
     UpbitTickKrwDotRepository upbitTickKrwDotRepository;
@@ -48,7 +46,7 @@ public class UpbitTickServiceTest {
 
         upbitTickService.save(upbitTickFactory.of(
                 tick,
-                codeUtil.getCoinCodeFromString(tick.getCode())
+                UpbitCoinCode.fromString(tick.getCode())
                 )
         );
 

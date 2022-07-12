@@ -111,7 +111,6 @@ class BithumbCandleRepositoryPicker{
                 return bithumbCandleKrwEthRepository;
             case KRW_ETC:
                 return bithumbCandleKrwEtcRepository;
-
             case KRW_MANA:
                 return bithumbCandleKrwManaRepository;
             case KRW_MATIC:

@@ -2,6 +2,7 @@ package com.example.pullingcoinapplication.socket.handler.bithumb;
 
 import com.example.pullingcoinapplication.entity.bithumb.orderbook.BithumbOrderbook;
 import com.example.pullingcoinapplication.entity.bithumb.orderbook.BithumbOrderbookFactory;
+import com.example.pullingcoinapplication.entity.bithumb.orderbook.BithumbOrderbookUnit;
 import com.example.pullingcoinapplication.entity.bithumb.orderbook.message.BithumbOrderbookListMessage;
 import com.example.pullingcoinapplication.entity.bithumb.orderbook.message.BithumbOrderbookSocketMessage;
 import com.example.pullingcoinapplication.entity.bithumb.orderbook.message.BithumbOrderbookUnitMessage;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.socket.WebSocketMessage;
 import org.springframework.web.socket.WebSocketSession;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -42,8 +44,11 @@ public class BithumbOrderbookSocketClientHandler  extends WebSocketClientPublish
     public BithumbOrderbook parseBithumbOrderbookMessage( BithumbOrderbookSocketMessage bithumbOrderbookSocketMessage )  {
         BithumbOrderbookListMessage content = bithumbOrderbookSocketMessage.getContent();
         List<BithumbOrderbookUnitMessage> list = content.getList();
+        List<BithumbOrderbookUnit> orderbookUnits = new ArrayList<>();
+        for(BithumbOrderbookUnitMessage unit : list){
+            orderbookUnits.add(new BithumbOrderbookUnit(unit.getOrderType(),unit.getPrice(),unit.getQuantity(),unit.getTotal()));
+        }
         Long datetime = content.getDatetime();
-        return  new BithumbOrderbook(datetime, list.get(0).getCode());
-
+        return  new BithumbOrderbook(datetime, list.get(0).getCode(),orderbookUnits);
     }
 }

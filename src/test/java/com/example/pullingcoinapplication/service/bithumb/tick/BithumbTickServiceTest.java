@@ -3,7 +3,6 @@ package com.example.pullingcoinapplication.service.bithumb.tick;
 import com.example.pullingcoinapplication.constants.coinCode.bithumbCoinCode.BithumbCoinCode;
 import com.example.pullingcoinapplication.entity.bithumb.tick.BithumbTick;
 import com.example.pullingcoinapplication.entity.bithumb.tick.BithumbTickFactory;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +52,7 @@ class BithumbTickServiceTest {
         int result = 0;
         for (BithumbTick t : ts) {
             if (bithumbTickService.findOneByCodeAndId
-                            (CodeUtil.getBithumbCoinCodeFromString(t.getCode()), t.getId()) == null)
+                            (BithumbCoinCode.fromString(t.getCode()), t.getId()) == null)
                 continue;
             result++;
         }

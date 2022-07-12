@@ -2,14 +2,13 @@ package com.example.pullingcoinapplication.entity.upbit.candle;
 
 import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.entity.upbit.candle.coin.*;
-import com.example.pullingcoinapplication.util.CodeUtil;
 import org.modelmapper.ModelMapper;
 
 public class UpbitCandleFactory {
     private final static ModelMapper modelMapper = new ModelMapper();
 
     public static UpbitCandle of(UpbitCandle candle) {
-        UpbitCoinCode upbitCoinCode = CodeUtil.getCoinCodeFromString(candle.getMarket());
+        UpbitCoinCode upbitCoinCode = UpbitCoinCode.fromString(candle.getMarket());
         switch (upbitCoinCode) {
             case KRW_ADA:
                 return modelMapper.map(candle, UpbitCandleKrwAda.class);
