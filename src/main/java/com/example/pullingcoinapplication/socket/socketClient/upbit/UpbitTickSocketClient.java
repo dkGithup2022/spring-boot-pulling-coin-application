@@ -5,7 +5,7 @@ import com.example.pullingcoinapplication.constants.coinCode.CoinCode;
 import com.example.pullingcoinapplication.constants.coinCode.UpbitCoinCode.UpbitCoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
-import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
+import com.example.pullingcoinapplication.entity.socket.SocketClientIndicator;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTick;
 import com.example.pullingcoinapplication.entity.upbit.tick.UpbitTickFactory;
 import com.example.pullingcoinapplication.socket.socketClient.AbstractSocketClient;

@@ -44,15 +44,4 @@ public class UpbitOrderbook implements Serializable {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     private List<OrderBookUnit> orderBookUnits;
-
-    /*
-    public void setOrderBookUnits(ArrayList<OrderBookUnit> orderBookUnits) throws JsonProcessingException {
-        this.orderBookUnits = new ObjectMapper().writeValueAsString(orderBookUnits);
-    }
-
-    public void setOrderBookUnits(String orderBookUnits) {
-        this.orderBookUnits = orderBookUnits;
-    }
-     */
-
 }

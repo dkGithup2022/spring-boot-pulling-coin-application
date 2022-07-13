@@ -3,6 +3,10 @@
 spring:
   profile:
     active: test
+  tast:
+    scheduling:
+      pool:
+        size: 5
 
 server:
   port: 8082
@@ -10,10 +14,10 @@ server:
     threads:
       max: 250
 
+
 logging:
   file:
     name: logs/log_v1_1.log
-
 
 ---
 #test 환경
@@ -154,7 +158,12 @@ property:
 
     candle:
       period:
-        cronCommand: 00 */23 * * * *
+        cronCommand: 00 */4 * * * *
+
+  bithumbCron:
+    candle:
+      period:
+        cronCommand: 00 00 * * * *
 
 logging:
   level:

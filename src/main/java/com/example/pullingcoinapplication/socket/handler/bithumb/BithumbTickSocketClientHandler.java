@@ -24,10 +24,12 @@ public class BithumbTickSocketClientHandler extends WebSocketClientPublisherHand
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         String s = String.valueOf(message.getPayload());
         BithumbSocketTickMessage bithumbSocketTickMessage = objectMapper.readValue(s, BithumbSocketTickMessage.class);
+
         if (bithumbSocketTickMessage.getStatus() != null && bithumbSocketTickMessage.getStatus().equals("0000"))
             return;
 
         for (BithumbTick tick : bithumbSocketTickMessage.getContent().getList()) {
+            tick.setTimestamp(tick.getContDtm().getTime());
             bithumbTickService.save(BithumbTickFactory.of(tick));
         }
 

@@ -3,7 +3,7 @@ package com.example.pullingcoinapplication.socket.socketClient.bithumb;
 import com.example.pullingcoinapplication.constants.coinCode.CoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
-import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
+import com.example.pullingcoinapplication.entity.socket.SocketClientIndicator;
 import com.example.pullingcoinapplication.service.bithumb.tick.BithumbTickService;
 import com.example.pullingcoinapplication.socket.socketClient.AbstractSocketClient;
 import com.example.pullingcoinapplication.socket.handler.WebSocketClientPublisherHandler;

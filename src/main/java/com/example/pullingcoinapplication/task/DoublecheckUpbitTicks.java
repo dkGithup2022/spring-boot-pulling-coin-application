@@ -56,7 +56,11 @@ public class DoublecheckUpbitTicks {
                     .filter(t -> !missingTicks.contains(t))
                     .collect(Collectors.toList());
             ticksToSave.stream()
-                    .forEach(t -> upbitTickService.saveWhenNotExist(UpbitTickFactory.of(t)));
+                    .forEach(
+                            t -> {
+
+                                upbitTickService.saveWhenNotExist(UpbitTickFactory.of(t))
+                        ;});
         }
         log.info("done : UpbitRestTickStuffUp");
     }

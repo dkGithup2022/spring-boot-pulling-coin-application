@@ -4,7 +4,7 @@ package com.example.pullingcoinapplication.socket.socketClient;
 import com.example.pullingcoinapplication.constants.coinCode.CoinCode;
 import com.example.pullingcoinapplication.constants.task.TaskType;
 import com.example.pullingcoinapplication.constants.vendor.VendorType;
-import com.example.pullingcoinapplication.entity.upbit.socket.SocketClientIndicator;
+import com.example.pullingcoinapplication.entity.socket.SocketClientIndicator;
 import com.example.pullingcoinapplication.service.restCall.upbitRest.UpbitRestRequestService;
 import com.example.pullingcoinapplication.socket.handler.WebSocketClientPublisherHandler;
 import com.example.pullingcoinapplication.socket.pubsub.SocketClientOnFailSubscriber;

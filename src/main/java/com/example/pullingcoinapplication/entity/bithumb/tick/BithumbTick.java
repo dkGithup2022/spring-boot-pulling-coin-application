@@ -41,7 +41,7 @@ public class BithumbTick{
 
     @JsonProperty ("contDtm")
     @Column(name="cont_dtm")
-    //@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss.SSSSSS")
     private Date contDtm;
 
