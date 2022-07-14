@@ -53,7 +53,7 @@ public class UpbitRestRequestService {
         return ticks;
     }
 
-    public UpbitTick[] getTicksBeforeSequentialId(UpbitCoinCode upbitCoinCode, Long sequentialId) throws JsonProcessingException {
+    public List<UpbitTick> getTicksBeforeSequentialId(UpbitCoinCode upbitCoinCode, Long sequentialId) throws JsonProcessingException {
         RestTemplate restTemplate = new RestTemplate();
         String uri = Uri.UPBIT_REST_TICK_URI.getAddress();
         uri += "?market=" + upbitCoinCode.toString();
@@ -63,7 +63,14 @@ public class UpbitRestRequestService {
         ResponseEntity<String> response
                 = restTemplate.getForEntity(uri, String.class);
         // 에러 처리 ... TOO many req
-        return objectMapper.readValue(response.getBody(), UpbitTick[].class);
+
+        List<UpbitTick> list =Arrays.asList(objectMapper.readValue(response.getBody(),UpbitTick[].class));
+        list.stream().forEach(t->{
+            t.setTradeTimestamp(t.getSequentialId()/1000);
+            t.setCallType(CallType.RESTAPI);
+            t.setType("trade");
+        });
+        return list;
 
     }
 
@@ -99,7 +106,7 @@ public class UpbitRestRequestService {
     private List<UpbitTick> getTicksBeforeSequentialIdSafe(UpbitCoinCode code, Long toSequentialId) throws HttpClientErrorException, InterruptedException {
         List<UpbitTick> restTicks = new ArrayList<>();
         try {
-            restTicks = Arrays.asList(getTicksBeforeSequentialId(code, toSequentialId));
+            restTicks =getTicksBeforeSequentialId(code, toSequentialId);
             pauseAfterRestRequest();
         } catch (HttpClientErrorException clientErrorException) {
             if (clientErrorException.getRawStatusCode() == 429) {

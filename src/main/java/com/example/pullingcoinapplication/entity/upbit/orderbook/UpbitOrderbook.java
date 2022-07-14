@@ -44,4 +44,5 @@ public class UpbitOrderbook implements Serializable {
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
     private List<OrderBookUnit> orderBookUnits;
+
 }

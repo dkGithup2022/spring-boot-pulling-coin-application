@@ -36,4 +36,5 @@ public class BithumbOrderbook {
     @Column(name = "orderbook_unit", columnDefinition = "jsonb")
     @Type(type = "jsonb")
     private List<BithumbOrderbookUnit> orderbookUnits;
+
 }

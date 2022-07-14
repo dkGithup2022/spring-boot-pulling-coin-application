@@ -36,39 +36,25 @@ public class ReconnectSocketClient {
         reconnectSocketClient(TaskType.UPBIT_ORDERBOOK);
     }
 
-    @Scheduled(cron = "${property.upbitCron.tick.restartSessions.cronCommand}")
+    @Scheduled(cron = "${property.bithumbCron.tick.restartSessions.cronCommand}")
     public void reconnectBithumbTickClient() throws IOException , Exception{
         reconnectSocketClient(TaskType.BITHUMB_TICK);
     }
 
 
-    @Scheduled(cron = "${property.upbitCron.tick.restartSessions.cronCommand}")
+    @Scheduled(cron = "${property.bithumbCron.orderbook.restartSessions.cronCommand}")
     public void reconnectBithumbOrderbookClient() throws IOException , Exception{
         reconnectSocketClient(TaskType.BITHUMB_ORDERBOOK);
     }
 
 
+
     public void reconnectSocketClient(TaskType taskType) throws IOException, Exception {
         AbstractSocketClient socketClient = taskMap.get(taskType);
-        /*
-        switch(taskType){
-            case UPBIT_TICK:
-                socketClient = (UpbitTickSocketClient) socketClient;
-            case UPBIT_ORDERBOOK:
-                socketClient = (UpbitTickSocketClient) socketClient;
-            case BITHUMB_TICK:
-                socketClient = (BithumbTickSocketClient) socketClient;
-            case BITHUMB_ORDERBOOK:
-                socketClient = (BithumbOrderbookSocketClient) socketClient;
-        }
-         */
-
         Map<SocketClientIndicator, WebSocketSession> sessionMap = socketClient.getSessionMap();
-
         for (SocketClientIndicator key : sessionMap.keySet()) {
             sessionMap.get(key).close();
         }
-
         sessionMap.clear();
         log.info("try to close {} ", taskType.getName() );
         socketClient.runSocketClientListenerSafe();
