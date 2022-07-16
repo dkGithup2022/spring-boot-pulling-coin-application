@@ -79,6 +79,73 @@ logging:
           HikariConfig: DEBUG
 
 
+
+---
+#dev 환경
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://192.168.0.9:5432/v1
+    username: postgres1
+    password: postgres1
+    hikari:
+      maximum-pool-size: 375
+      leakDetectionThreshold: 20000
+
+    h2:
+    console:
+      path: /h2-console
+      enabled: true
+
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+
+property:
+  upbitCron:
+    tick:
+      doubleCheck:
+        cronCommand: 00 */5 * * * *
+        period: 10
+      restartSessions:
+        cronCommand : 00 */8 * * * *
+
+    orderbook:
+      restartSessions:
+        cronCommand: 00 */3 * * * *
+
+    candle:
+      period:
+        cronCommand: 00 */4 * * * *
+
+  bithumbCron:
+    candle:
+      period:
+        cronCommand: 00 00 * * * *
+
+    tick:
+      restartSessions:
+        cronCommand: 00 17 00 * * *
+
+    orderbook:
+      restartSessions:
+        cronCommand: 01 12 00 * * *
+
+logging:
+  level:
+    org:
+      springframework:
+        cache: TRACE
+
+    com.zaxxer.hikari.HikariConfig: DEBUG
+    com.zaxxer.hikari: TRACE
+
 ---
 #prod 환경
 spring:
@@ -135,60 +202,49 @@ logging:
     com.zaxxer.hikari.HikariConfig: DEBUG
     com.zaxxer.hikari: TRACE
 
-
 ---
-#dev 환경
+#prod 환경
 spring:
   config:
     activate:
-      on-profile: dev
+      on-profile: prod2
 
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://192.168.0.9:5432/v1
+    url: jdbc:postgresql://192.168.1.101:5432/v1
     username: postgres1
     password: postgres1
     hikari:
-      maximum-pool-size: 375
-      leakDetectionThreshold: 20000
-
-    h2:
-    console:
-      path: /h2-console
-      enabled: true
+      maximum-pool-size: 30
+      leakDetectionThreshold: 200000
 
   jpa:
     show-sql: false
     generate-ddl: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 
 property:
   upbitCron:
     tick:
       doubleCheck:
-        cronCommand: 00 */5 * * * *
-        period: 10
+        cronCommand: 00 */15 * * * *
+        period: 15
       restartSessions:
-        cronCommand : 00 */8 * * * *
+        cronCommand : 00 00 00 * * *
 
     orderbook:
       restartSessions:
+        cronCommand: 00 10 00 */5 * *
+
+    candle:
+      period:
         cronCommand: 00 */3 * * * *
 
-    candle:
-      period:
-        cronCommand: 00 */4 * * * *
-
   bithumbCron:
-    candle:
-      period:
-        cronCommand: 00 00 * * * *
-
     tick:
       restartSessions:
-        cronCommand: 00 17 00 * * *
-
+        cronCommand : 00 17 00 * * *
     orderbook:
       restartSessions:
         cronCommand: 01 12 00 * * *
