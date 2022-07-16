@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Transient;
+import javax.persistence.*;
 
 @MappedSuperclass
 @Data
@@ -16,17 +13,30 @@ import javax.persistence.Transient;
 @NoArgsConstructor
 public class BithumbCandle {
 
+    public BithumbCandle(String code, Long timestamp, Double openingPrice, Double closingPrice, Double highPrice, Double lowPrice, Double tradeAmount) {
+        this.code = code;
+        this.timestamp = timestamp;
+        this.openingPrice = openingPrice;
+        this.closingPrice = closingPrice;
+        this.highPrice = highPrice;
+        this.lowPrice = lowPrice;
+        this.tradeAmount = tradeAmount;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @Transient
     private String code;
 
-    @Id
     @Column(name = "timestamp")
     public Long timestamp;
 
-    @Column(name = "opening_price" )
+    @Column(name = "opening_price")
     private Double openingPrice;
 
-    @Column(name = "closing_price" )
+    @Column(name = "closing_price")
     private Double closingPrice;
 
     @Column(name = "high_price")
@@ -37,5 +47,4 @@ public class BithumbCandle {
 
     @Column(name = "trade_amount")
     private Double tradeAmount;
-
 }

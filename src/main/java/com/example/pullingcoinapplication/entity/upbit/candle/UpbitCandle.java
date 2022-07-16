@@ -20,7 +20,33 @@ import java.util.Date;
 @NoArgsConstructor
 public class UpbitCandle implements Serializable {
 
+    public UpbitCandle(Long timestamp,
+                       String market,
+                       Date candleDateTimeUtc,
+                       Date candleDateTimeKst,
+                       Double openingPrice,
+                       Double highPrice,
+                       Double lowPrice,
+                       Double tradePrice,
+                       Double candleAccTradePrice,
+                       Double candleAccTradeVolume){
+
+        this.timestamp = timestamp;
+        this.market = market;
+        this.candleDateTimeUtc = candleDateTimeUtc;
+        this.candleDateTimeKst = candleDateTimeKst;
+        this.openingPrice = openingPrice;
+        this.highPrice = highPrice;
+        this.lowPrice = lowPrice;
+        this.tradePrice=tradePrice;
+        this.candleAccTradePrice = candleAccTradePrice;
+        this.candleAccTradeVolume = candleAccTradeVolume;
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
     @NotNull
     @JsonProperty("timestamp")
     private Long timestamp;
