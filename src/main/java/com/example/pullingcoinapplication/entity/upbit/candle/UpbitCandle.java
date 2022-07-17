@@ -45,6 +45,7 @@ public class UpbitCandle implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
 
     @NotNull
