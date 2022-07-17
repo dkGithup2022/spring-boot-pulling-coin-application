@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.sun.istack.NotNull;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
-import com.vladmihalcea.hibernate.type.json.JsonType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,8 +22,6 @@ import java.util.List;
 @MappedSuperclass
 @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
 public class UpbitOrderbook implements Serializable {
-
-
     @NotNull
     @JsonProperty("market")
     @JsonAlias("code")
@@ -42,7 +40,7 @@ public class UpbitOrderbook implements Serializable {
 
     @JsonProperty("orderbook_units")
     @Type(type = "jsonb")
-    @Column(columnDefinition = "jsonb")
+    @Column(columnDefinition = "json")
     private List<OrderBookUnit> orderBookUnits;
 
 }

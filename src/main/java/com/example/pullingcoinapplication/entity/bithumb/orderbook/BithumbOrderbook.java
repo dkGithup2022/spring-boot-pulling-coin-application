@@ -4,6 +4,7 @@ package com.example.pullingcoinapplication.entity.bithumb.orderbook;
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,8 +34,8 @@ public class BithumbOrderbook {
     private String code;
 
     @JsonProperty("orderbookUnit")
-    @Column(name = "orderbook_unit", columnDefinition = "jsonb")
     @Type(type = "jsonb")
+    @Column(name = "orderbook_unit", columnDefinition = "json")
     private List<BithumbOrderbookUnit> orderbookUnits;
 
 }
